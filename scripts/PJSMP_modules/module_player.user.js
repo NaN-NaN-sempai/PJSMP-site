@@ -4,6 +4,7 @@
 // @description  ＰＪＳＭＰ - Pure JavaScript Midi Player, PJSMP's module that plays MIDI files in Multiplayer Piano
 // @author       ＮａＮ－ＮａＮ-ｓｅｎｐａｉ(BR)
 // @include      *://www.multiplayerpiano.com/*
+// @include      *://multiplayerpiano.com/*
 // @include      *://piano.ourworldofpixels.com/*
 // @include      *://mpp.terrium.net/*
 // @grant        none

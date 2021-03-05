@@ -28,6 +28,8 @@ var newModule = (obj) => {
 
         var span = document.createElement("span");
             span.innerHTML = obj.desc;
+            span.title = obj.title;
+            span.className = "moduleDescription";
         module.appendChild(span);
 
         module.appendChild(document.createElement("br"));
@@ -35,50 +37,24 @@ var newModule = (obj) => {
 
         var button = document.createElement("button");
             button.className = "openCode";
-            button.setAttribute("onclick", `(()=>{
-                var w = window.open("");
-                w.document.write("<html><head><title>`+translate('buttons.newTabTitle')+`: `+obj.title+`</title></head><body><span style='font-family: Arial, Helvetica, sans-serif; white-space: pre-wrap'>"+Array.from(this.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML+"</span></body></html>");
-                w.document.close();
-            })()`);
+            button.setAttribute("onclick", "openFileCode(this, '"+obj.title+"')");
         module.appendChild(button);        
 
         var button2 = document.createElement("button");
             button2.className = "copyCode";
-            button2.setAttribute("onclick", `(()=>{Array.from(this.parentElement.children).find(e=>e.tagName=="TEXTAREA").select();
-                                                    document.execCommand('copy');
-                                                    document.getSelection().removeAllRanges();
-                                                    var thisButton = this;
-                                                    this.innerHTML = window.translate("buttons.copied");
-                                                    setTimeout(()=>reinsertTranslactions(), 1500);
-                                                })()`);
+            button2.setAttribute("onclick", "copyCode(this)");
         module.appendChild(button2);
 
         var button3 = document.createElement("button");
             button3.className = "downloadCode";
-            button3.setAttribute("onclick", ` (()=>{
-                                            var textFileAsBlob = new Blob([Array.from(this.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML], {type:'text/plain'}); 
-                                            var downloadLink = document.createElement("a");
-                                                downloadLink.download = Array.from(this.parentElement.children).find(e=>e.tagName=="H1").innerHTML+".js";
-                                                downloadLink.innerHTML = "Download File";
-                                            if (window.webkitURL != null)
-                                            {
-                                                // Chrome allows the link to be clicked
-                                                // without actually adding it to the DOM.
-                                                downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-                                            }
-                                            else
-                                            {
-                                                // Firefox requires the link to be added to the DOM
-                                                // before it can be clicked.
-                                                downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-                                                downloadLink.onclick = destroyClickedElement;
-                                                downloadLink.style.display = "none";
-                                                document.body.appendChild(downloadLink);
-                                            }
-                                        
-                                            downloadLink.click();
-                                        })()`);
+            button3.setAttribute("onclick", `downloadCode(this)`);
         module.appendChild(button3);
+
+        var button4 = document.createElement("button");
+            button4.className = "installInUSPrograms"; 
+            button4.title = "Tampermonkey, Greasemonkey, Violentmonkey, etc."
+            button4.setAttribute("onclick", `installInUSPrograms("./scripts/PJSMP_modules/`+obj.fileName+`")`);
+        module.appendChild(button4);
 
         module.appendChild(document.createElement("br"));
         module.appendChild(document.createElement("br"));
@@ -114,13 +90,7 @@ var newHistoryFile = (obj) => {
 
     var div = document.createElement("div");
         div.className = "historyFile";
-        div.setAttribute("onclick", `(()=>{
-            
-            var w = window.open("");
-            w.document.write("<html><head><title>`+translate('buttons.newTabTitle')+`: `+obj.title+`</title></head><body><span style='font-family: Arial, Helvetica, sans-serif; white-space: pre-wrap'>"+Array.from(this.children).find(e=>e.tagName=="TEXTAREA").innerHTML+"</span></body></html>");
-            w.document.close();
-            
-        })()`);
+        div.setAttribute("onclick", 'openHistoryCode("'+obj.fileName+'", "'+obj.title+'")');
 
         var title = document.createElement("h1");
             title.innerHTML = obj.title;
@@ -138,10 +108,6 @@ var newHistoryFile = (obj) => {
         var p = document.createElement("p");
             p.innerHTML = obj.time;
         div.appendChild(p);
-
-        var invisibleTextarea = document.createElement("textarea");
-            invisibleTextarea.innerHTML = obj.code;
-        div.appendChild(invisibleTextarea);
     subcontainer.appendChild(div);
 }
 

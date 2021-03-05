@@ -68,6 +68,7 @@ span, p, h1 {
     background: var(--yellowTone);
     border-radius: 28px;
     border: 1px solid var(--yellowToneTrans);
+    margin-top: 10px;
     display: inline-block;
     cursor: pointer; 
     font-family: Arial;
@@ -79,6 +80,12 @@ span, p, h1 {
     text-shadow:0px 0px 10px black;
     box-shadow: 0px 0px 5px var(--yellowOutline), 0px 0px 5px var(--yellowOutline);
     transition: .2s;
+}
+.modules button img {
+    height: 13px;
+    width: 13px;
+    position: relative;
+    bottom: -2px;
 }
 .modules button:hover {
     background: var(--LightYellowTone);
@@ -99,9 +106,9 @@ span, p, h1 {
     resize: none;
     height: 250px;
     width: 350px;
-    overflow: scroll;
-    border-radius: 10px;
-    border: solid 1px var(--darkYellowTone);
+    overflow: overlay; 
+    border-radius: 2px;
+    border: solid 2px var(--darkYellowToneTrans);
     background: var(--darkYellowTone);
     white-space: pre;
 }
@@ -152,10 +159,6 @@ span, p, h1 {
     overflow: hidden; 
     max-width: 100%;   
     white-space: nowrap;
-}
-.historyFile textarea {
-    position: absolute;
-    display: none;
 }
 
 
@@ -276,7 +279,7 @@ span, p, h1 {
 
 
 .nanGit {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     background: var(--yellowTone);
@@ -296,6 +299,30 @@ span, p, h1 {
     cursor: pointer; 
     font-size: 13px;
     font-weight: normal;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar:hover {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff8c009c;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #e08312;
+}
+::-webkit-scrollbar-corner{
+    background: transparent;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 10px;
 }
 
 @keyframes fadeIn {

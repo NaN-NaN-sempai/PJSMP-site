@@ -1,41 +1,65 @@
 var loadModules = async () => {
-    var size;
-    await fetch("./scripts/PJSMP_modules/module_player.js")
-    .then(response => {
-        size = response.headers.get("content-length");
-        return response.text();})
-    .then(text => {
-        newModule({
-            title: "module: player",
-            desc: translate("moduleDesk.player"),
-            time: "28/02/2021",
-            size: fixByte(size),
-            version: "1.0.9",
-            code: text
-        })
+    await generateModule({
+        fileName: "module_player.user.js",
+        title: "Module: Player",
+        desc: translate("moduleDesk.player"),
+        time: "28/02/2021",
+        version: "1.0.9"
     });
 
-
+    await generateModule({
+        fileName: "module_midi_controller.user.js",
+        title: "Module: MIDI Controller",
+        desc: translate("moduleDesk.midiPlayer"),
+        time: "03/03/2021",
+        version: "0.04"
+    });
 
     
     createHistory(); // ================================== HISTORY ============================================
 
-    await fetch("./scripts/PJSMP_modules/nothingThere.txt")
-    .then(response => {
-        size = response.headers.get("content-length");
-        return response.text();})
-    .then(text => {
-        newHistoryFile({
-            title: "Nothing there for now.",
-            time: "28/02/2021",
-            version: "0.0",
-            size: fixByte(size),
-            code: text
-        })
+    await generateHistoryFile({
+        fileName: "nothingThere.txt",
+        title: "Nothing there for now.",
+        time: "28/02/2021",
+        version: "0.0",
     });
 
 
     reinsertTranslactions();
+}
+
+var generateModule = async (obj) => {
+    var size;
+    await fetch("./scripts/PJSMP_modules/"+obj.fileName)
+    .then(response => {
+        size = response.headers.get("content-length");
+        return response.text();
+    })
+    .then(text => {
+        newModule({
+            fileName: obj.fileName,
+            title: obj.title,
+            desc: obj.desc,
+            time: obj.time,
+            size: fixByte(size),
+            version: obj.version,
+            code: text
+        })
+    });
+}
+var generateHistoryFile = async (obj) => {
+    fetch("./scripts/PJSMP_modules/history/"+obj.fileName)
+    .then(response => response.headers.get("content-length"))
+    .then(size => {
+        newHistoryFile({
+            fileName: obj.fileName,
+            title: obj.title,
+            time: obj.time,
+            version: obj.version,
+            size: fixByte(size)
+        })
+    });
 }
 
 
@@ -70,6 +94,52 @@ var translateDropdow = () => {
     }
 }
 document.querySelector("#tranlateButton").addEventListener("mousedown", translateDropdow);
+
+
+var openFileCode = (elem, title) => {
+    var w = window.open("../../pages/rawFiles.html");
+        w.fileTitle = translate('buttons.newTabTitle')+": "+title;
+        w.fileContent = Array.from(elem.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML;
+    w.document.close();
+}
+var openHistoryCode = (fileName, title) => {
+    fetch("./scripts/PJSMP_modules/history/"+fileName)
+    .then(response => response.text())
+    .then(text => {
+        var w = window.open("../../pages/rawFiles.html", "_blank");
+            w.fileTitle = translate('buttons.newTabTitle')+": "+title;
+            w.fileContent = text;
+        w.document.close();        
+    });
+}
+var copyCode = elem => {
+    Array.from(elem.parentElement.children).find(e=>e.tagName=="TEXTAREA").select();
+    document.execCommand('copy');
+    document.getSelection().removeAllRanges();
+    var elemButton = elem;
+    elem.innerHTML = window.translate("buttons.copied");
+    setTimeout(()=>reinsertTranslactions(), 1500);
+}
+var downloadCode = (elem) => {
+    var textFileAsBlob = new Blob([Array.from(elem.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML], {type:'text/plain'}); 
+    var downloadLink = document.createElement("a");
+        downloadLink.download = Array.from(elem.parentElement.children).find(e=>e.tagName=="H1").innerHTML+".js";
+        downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null){
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob); 
+
+    } else {
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+    }
+
+    downloadLink.click();
+}
+var installInUSPrograms = (n) => { 
+    window.open(n, "_self");
+}
 
 
 window.addEventListener("mousemove", mouseMoveFunction);

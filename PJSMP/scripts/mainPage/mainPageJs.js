@@ -97,7 +97,7 @@ document.querySelector("#tranlateButton").addEventListener("mousedown", translat
 
 
 var openFileCode = (elem, title) => {
-    var w = window.open("../../../pages/openFiles/index.html");
+    var w = window.open("../PJSMP/pages/openFiles/index.html");//../../../pages/openFiles/index.html");
         w.fileTitle = translate('buttons.newTabTitle')+": "+title;
         w.fileContent = Array.from(elem.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML;
     w.document.close();

@@ -97,7 +97,7 @@ var insertTranslactions = () => {
     Array.from(document.querySelectorAll(".copyCode")).forEach(e=>e.innerHTML = translate("buttons.copyCode")); // copy code button
     Array.from(document.querySelectorAll(".downloadCode")).forEach(e=>e.innerHTML = translate("buttons.downloadCode")); // download code button
     Array.from(document.querySelectorAll(".installInUSPrograms")).forEach(e=>e.innerHTML = translate("buttons.install")+`
-        <span><img src="/content/imgs/container/installIcon.png"></span>
+        <span><img src="/PJSMP/content/imgs/container/installIcon.png"></span>
     `); // download code button
 
     if(document.querySelector(".moduleDescription")){

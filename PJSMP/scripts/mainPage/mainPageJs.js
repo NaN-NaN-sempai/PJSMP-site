@@ -124,7 +124,8 @@ var copyCode = elem => {
 var downloadCode = (elem) => {
     var textFileAsBlob = new Blob([Array.from(elem.parentElement.children).find(e=>e.tagName=="TEXTAREA").innerHTML], {type:'text/plain'}); 
     var downloadLink = document.createElement("a");
-        downloadLink.download = Array.from(elem.parentElement.children).find(e=>e.tagName=="H1").innerHTML+".js";
+        downloadLink.download = "PJSMP_" + Array.from(elem.parentElement.children).find(e=>e.tagName=="H1").innerHTML + "_" +
+                                Array.from(elem.parentElement.children).filter(e=>e.tagName=="SPAN" && e.className == "moduleSpanInfo")[1].innerHTML + ".user.js";
         downloadLink.innerHTML = "Download File";
     if (window.webkitURL != null){
         downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob); 

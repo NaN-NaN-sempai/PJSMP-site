@@ -15,7 +15,7 @@ var newModule = (obj) => {
 
         var spanInfo3 = document.createElement("span");
             spanInfo3.className = "moduleSpanInfo";
-            spanInfo3.innerHTML = obj.version+"v";
+            spanInfo3.innerHTML = "v"+obj.version;
         module.appendChild(spanInfo3);
 
         var spanInfo2 = document.createElement("span");
@@ -98,7 +98,7 @@ var newHistoryFile = (obj) => {
         div.appendChild(title);
 
         var p3 = document.createElement("p");
-            p3.innerHTML = obj.version+"v";
+            p3.innerHTML = "v"+obj.version;
         div.appendChild(p3);
 
         var p2 = document.createElement("p");

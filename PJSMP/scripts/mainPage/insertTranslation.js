@@ -89,6 +89,7 @@ var translations = {
 };
 
 
+
 var insertTranslactions = () => {
     document.getElementById("clickToContinue").innerHTML = translate("title.clickToContinue"); // title
 

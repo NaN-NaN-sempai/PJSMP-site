@@ -1,4 +1,4 @@
-# [https://nan-nan-sempai.github.io/](NaN-NaN-sempai.github.io)
+# [NaN-NaN-sempai.github.io](https://nan-nan-sempai.github.io/)
 Repository containing all my projects.
 
 

@@ -11,4 +11,4 @@ This is the new version of ＰＪＳＭＰ - Pure JavaScript Midi Player, ＰＪ
 
 ＰＪＳＭＰ (RE) is a midi pleyer for multiplayer piano, it is modular so each module operates a different functions.
 
-[NaN-NaN-sempai.github.io/PJSMP](NaN-NaN-sempai.github.io/PJSMP)
+[NaN-NaN-sempai.github.io/PJSMP](https://nan-nan-sempai.github.io/PJSMP)

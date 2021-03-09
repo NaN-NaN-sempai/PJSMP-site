@@ -9,6 +9,6 @@ This is the new version of ＰＪＳＭＰ - Pure JavaScript Midi Player, ＰＪ
 
 (RE) means Remake.
 
-ＰＪＳＭＰ (RE) is a midi player for multiplayer piano, it is modular so each module operates a different functions.
+ＰＪＳＭＰ (RE) is a midi player for multiplayer piano, it is modular so each module operate different functions.
 
 [NaN-NaN-sempai.github.io/PJSMP](https://nan-nan-sempai.github.io/PJSMP)

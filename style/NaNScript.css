@@ -1,9 +1,171 @@
+:root {
+    --titleColor: #00cedd;
+    --titleColorLighter: #00eeff;
+
+    --textShadowColor: #010a30;
+
+    --textShadow: 0px 0px 5px var(--textShadowColor), 0px 0px 5px var(--textShadowColor), 0px 1px 2px var(--textShadowColor)
+}
+* {
+    outline: none;
+}
+
 body {
     margin: 0;
+    overflow: overlay;
 
     background: url(/content/imgs/bg/NaNScriptsBg.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+}
+
+h1 {
+    color: white;
+    text-shadow: var(--textShadow);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: var(--titleColor);
+}
+
+span, p, h1 {
+    color: var(--titleColor);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    user-select: none;
+}
+
+.subContainer {
+    margin: 20px;
+}
+.subContainerTitle {
+    text-align: center;
+}
+
+.subContainerContent {
+    background: rgba(0, 80, 80, 0.315);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.subContainerContent .subContainerIten { 
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;  
+    flex: 1 1 30%;
+    margin: 5px;
+    height: 150px; 
+    backdrop-filter: blur(10px);
+    border-radius: 20px; 
+    overflow: hidden;
+}
+.subContainerIten .itenTitle {
+    margin: 0;
+    padding-top: 5px;
+    font-size: 27px;
+}
+.subContainerIten .itenDesc { 
+    margin: 0;
+    padding: 5px;
+    text-shadow: var(--textShadow);
+}
+.subContainerIten .itenContainer {
+    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,.2);
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    white-space: initial;
+    overflow-wrap: break-word;
+    word-wrap: break-word; 
+    transition: background .5s;
+}
+.subContainerIten .itenContainer::-webkit-scrollbar {
+    display: none;
+}
+.subContainerIten:hover .itenContainer {
+    background: rgba(0,0,0,.7);
+}
+
+
+.mainPageTitle {
+    margin-top: 20px;
+    font-size: 50px; 
+}
+
+.mainContainer {
+    border: solid var(--textShadowColor) 1px;
+    border-radius: 30px; 
+    width: 95%;
+
+    position: relative;
+    left: 50%;
+    
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+
+
+.nanGit {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background: var(--textShadowColor);
+    padding: 3px;
+    border: 1px solid var(--textShadowColor); 
+    border-radius: 15px 0 0 0;
+    cursor: pointer; 
+    font-family: Arial;
+    font-size: 15px; 
+    text-decoration: none;
+    text-shadow:0px 0px 10px black;
+    box-shadow: var(--textShadow);
+    transition: .2s;
+}
+.nanGit span {
+    color: white;
+    cursor: pointer; 
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+::-webkit-scrollbar:hover {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--titleColor);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: var(--titleColorLighter);
+}
+::-webkit-scrollbar-corner{
+    background: transparent;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 10px;
 }

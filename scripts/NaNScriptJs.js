@@ -2,6 +2,11 @@ var createContainer = (obj) => {
     var container = document.getElementsByClassName("mainContainer")[0];
 
     
+    if(!!container.children[0]){
+        container.appendChild(document.createElement("hr"));
+    }
+
+    
     var content = document.createElement("div");
         content.className = "subContainer"; 
 

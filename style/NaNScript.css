@@ -62,7 +62,7 @@ span, p, h1 {
     background-size:cover;
     background-position: center;  
     flex: 1 1 30%;
-    margin: 5px;
+    margin: 10px;
     height: 150px; 
     backdrop-filter: blur(10px);
     border-radius: 20px; 
@@ -104,7 +104,8 @@ span, p, h1 {
 }
 
 .mainContainer {
-    border: solid var(--textShadowColor) 1px;
+    border: solid var(--titleColorLighter) 2px;
+    box-shadow: var(--textShadow);
     border-radius: 30px; 
     width: 95%;
 
@@ -113,6 +114,13 @@ span, p, h1 {
     
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+}
+.mainContainer hr { 
+    background-color: var(--titleColorLighter);
+    border: var(--titleColorLighter) 1px solid;
+    box-shadow: var(--textShadow);
+    height: 0px;
+    width: 80%; 
 }
 
 

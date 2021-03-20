@@ -29,3 +29,12 @@ createContent({
     desc: "Follow PJSMP's scripts and releases here!<br><br>PJSMP (RE) is a auto player (MIDI player) made for Multiplayer Piano.",
     onClick: "'./projects/PJSMP/'"
 });
+
+createContent({
+    id: "projects",
+    color: "white",
+    solidBg: "white",
+    title: "Chat Hyperlinks", 
+    desc: "Working in progress!<br><br>Interactive links, images and videos directly from the Multiplayere Piano chat.",
+    onClick: "'./projects/ChatHyperlinks/'"
+});

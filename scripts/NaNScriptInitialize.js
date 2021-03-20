@@ -7,7 +7,7 @@ createContainer({
 createContent({
     id: "topics",
     color: "white",
-    solidBg: "white",
+    solidBg: "transparent",
     title: "No topics",
     desc: "No topics for now, but future topics and cool stuff will appear here!",
     onClick: ()=>{}

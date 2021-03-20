@@ -106,6 +106,7 @@ span, p, h1 {
 .mainContainer {
     border: solid var(--titleColorLighter) 2px;
     box-shadow: var(--textShadow);
+    margin-bottom: 40px;
     border-radius: 30px; 
     width: 95%;
 

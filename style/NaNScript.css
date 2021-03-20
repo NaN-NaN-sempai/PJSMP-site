@@ -130,7 +130,23 @@ span, p, h1 {
 
 
 
-
+.nanScripts {
+    position: fixed;
+    background: red;
+    right: 0;
+    bottom: 0;
+    background: var(--textShadowColor);
+    padding: 3px;
+    border: 1px solid var(--textShadowColor); 
+    border-radius: 15px 0 0 0;
+    cursor: pointer; 
+    font-family: Arial;
+    font-size: 15px; 
+    text-decoration: none;
+    text-shadow:0px 0px 10px black;
+    box-shadow: var(--textShadow);
+    transition: .2s;
+}
 .nanGit {
     position: fixed;
     right: 0;
@@ -147,7 +163,7 @@ span, p, h1 {
     box-shadow: var(--textShadow);
     transition: .2s;
 }
-.nanGit span {
+.nanGit span, .nanScripts span {
     color: white;
     cursor: pointer; 
     font-size: 13px;

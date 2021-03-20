@@ -14,7 +14,7 @@ body{
 }
 
 span:not(.nanGit span, .nanScripts span) {
-    user-select: auto;
+    user-select: auto;  
 
     color: var(--yellowTone);
     white-space: pre-wrap;

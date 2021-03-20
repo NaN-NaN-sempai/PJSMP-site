@@ -38,3 +38,19 @@ createContent({
     desc: "Working in progress!<br><br>Interactive links, images and videos directly from the Multiplayere Piano chat.",
     onClick: "'./projects/ChatHyperlinks/'"
 });
+
+
+// ############################################## MORE #############################################
+createContainer({
+    title: "More",
+    id: "more"
+});
+
+createContent({
+    id: "more",
+    color: "white",
+    background: "./more/githug/content/imgs/hugwallpaper.jpeg",
+    title: "GitHug", 
+    desc: "Charsy 🤗",
+    onClick: "'./more/githug/'"
+});

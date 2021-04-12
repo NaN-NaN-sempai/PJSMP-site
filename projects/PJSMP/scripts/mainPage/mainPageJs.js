@@ -3,26 +3,33 @@ var loadModules = async () => {
         fileName: "module_player.user.js",
         title: "Module: Player",
         desc: translate("moduleDesk.player"),
-        time: "28/02/2021",
-        version: "1.0.9"
+        time: "12/04/2021",
+        version: "1.0.10"
     });
 
     await generateModule({
         fileName: "module_midi_controller.user.js",
         title: "Module: MIDI Controller",
         desc: translate("moduleDesk.midiPlayer"),
-        time: "03/03/2021",
-        version: "0.04"
+        time: "12/04/2021",
+        version: "0.04.1"
     });
 
     
     createHistory(); // ================================== HISTORY ============================================
 
     await generateHistoryFile({
-        fileName: "nothingThere.txt",
-        title: "Nothing there for now.",
-        time: "28/02/2021",
-        version: "0.0",
+        fileName: "module_midi_controller_v0.04.js",
+        title: "Module: MIDI Controller",
+        time: "12/04/2021",
+        version: "0.04",
+    });
+
+    await generateHistoryFile({
+        fileName: "module_player_v1.0.9.js",
+        title: "Module: Player",
+        time: "12/04/2021",
+        version: "1.0.9",
     });
 
 

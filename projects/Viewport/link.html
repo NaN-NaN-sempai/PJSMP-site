@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="/content/imgs/logo/logo.png"/>
+    </head>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+        }
+        #viewport {
+            margin: auto;
+            background: rgb(58, 58, 58);
+            display: block;
+            width: fit-content;
+            overflow: hidden;
+        }
+
+        .viewportLine {
+            padding: 0;
+            margin: 0;
+            height: fit-content;
+        }
+
+        .viewportLine > div {
+            float: left;
+            border-radius: 20%;
+        }
+
+        .fps {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+            text-shadow: black 1px 1px  3px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+</style>
+<body>
+<p class="fps">DELAY: <span>400</span> millisecond(s)</p>
+    <div id="viewport">
+        <button onclick="start()">START</button>
+    </div>
+</body>
+
+<script src="internal.js"></script>
+<!-- <script src="test.js"></script> -->
+<!-- <script src="fire.js"></script> -->
+<script src="link.js"></script>
+</html>

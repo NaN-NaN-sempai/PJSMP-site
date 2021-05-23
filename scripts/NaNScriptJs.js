@@ -47,7 +47,8 @@ var createContent = (obj) => {
             var contentDesc = document.createElement("p");
                 contentDesc.className = "itenDesc";
                 contentDesc.style.color = !obj.color? undefined: obj.color;
-                contentDesc.innerHTML = obj.desc;
+                contentDesc.innerHTML = !obj.type? "": "Project type: "+obj.type + "<br><br>";
+                contentDesc.innerHTML += obj.desc;
             contentContainer.appendChild(contentDesc); 
         content.appendChild(contentContainer);
     container.appendChild(content);

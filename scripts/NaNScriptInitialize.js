@@ -22,9 +22,20 @@ createContainer({
 
 createContent({
     id: "projects",
+    color: "white",
+    background: "./projects/Viewport/imgs/linkProjectBanner.png",
+    title: "Viewport", 
+    type: "HTML",
+    desc: "Little screen for pixel animations.<br><br>Some tools and logics for helping in the animations.",
+    onClick: "'./projects/Viewport/'"
+});
+
+createContent({
+    id: "projects",
     color: "#fc9c28",
     background: "./projects/PJSMP/content/imgs/bg/fullBg.png",
     title: "ＰＪＳＭＰ (RE)",
+    type: "MPP",
     elemTitle: "Pure JavaScrip Midi Player (remake)",
     desc: "Follow PJSMP's scripts and releases here!<br><br>PJSMP (RE) is a auto player (MIDI player) made for Multiplayer Piano.",
     onClick: "'./projects/PJSMP/'"
@@ -35,6 +46,7 @@ createContent({
     color: "white",
     solidBg: "white",
     title: "Chat Hyperlinks", 
+    type: "MPP",
     desc: "Working in progress!<br><br>Interactive links, images and videos directly from the Multiplayere Piano chat.",
     onClick: "'./projects/ChatHyperlinks/'"
 });

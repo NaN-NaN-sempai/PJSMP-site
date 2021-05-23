@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ＰＪＳＭＰ (RE) - module: midi controller
-// @version      0.04.1
+// @version      0.04
 // @description  ＰＪＳＭＰ (RE) - Pure JavaScript Midi Player (Remake), PJSMP module that add effects to the notes in Multiplayer Piano
 // @author       ＮａＮ－ＮａＮ-ｓｅｎｐａｉ(BR)
 // @include      *://www.multiplayerpiano.com/*
@@ -10,7 +10,7 @@
 // @grant        none
 // ==/UserScript==
 
-window.PJSMP_mmc__version = "0.04.1";
+window.PJSMP_mmc__version = "0.04";
 window.PJSMP_mmc__moduleName = "ＰＪＳＭＰ (RE) - module: midi controller";
 window.PJSMP_mmc__moduleFullName = "Pure JavaScript Midi Player (Remake) - module: midi controller";
 window.PJSMP_mmc__changeLog = `
@@ -97,9 +97,6 @@ __________________________________________________________CHANGE LOG____________
     - (ERROR FIX) CHANGE LOG TAB: CHANGE LOG TAB DOESNT LOAD FOREVER NOW. 
     - VELOCITY OVERRIDE: NEW SLIDER TO OVERRIDE THE VELOCITY OF THE NOTES. IF ITS ON, THE NOTES WILL BE PLAYED IN A CONSTANT VELOCITY.
     - (ERROR FIX) RELEASE: NOW THE NOTES ARE BEEING RELEASED PROPERLY WHEN EFFECTS ARE ADDED ON USER DEVICES OR ON PJSMP.
-    (0.04.1) => { 
-        - (ERROR FIX) NOT ON TOP: NOW THE MIDI CONTROLLER WINDOW SHOWS ABOVE EVERYTHING IN THE PAGE.
-    }
 
 0.03 FEATURES [OCTAVES]:
     - (ERROR FIX) SLIDERS: FIXED THE ERROR WHEN THE INPUT NUMBER VALUE WAS SET AS BELLOW ZERO AND THE SLIDER VALUE AUTOMATICALLY WAS SET TO THE MINOR VALUE POSSIBLE.
@@ -1069,10 +1066,10 @@ if(!document.querySelector("#PJSMP_mmc__mainContainer")){
 
     PJSMP_mmc__mainContainer.appendChild(PJSMP_mmc__dragAndDrop);
     PJSMP_mmc__mainContainer.appendChild(PJSMP_mmc__window);
- 
-    PJSMP_mmc__mainContainer.style.zIndex = 10000000;
-    document.body.appendChild(PJSMP_mmc__mainContainer);
-} 
+
+    document.querySelector("#bottom").appendChild(PJSMP_mmc__mainContainer);
+}
+
 
 
 

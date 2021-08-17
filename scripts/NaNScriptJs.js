@@ -1,6 +1,5 @@
 var createContainer = (obj) => {
     var container = document.getElementsByClassName("mainContainer")[0];
-
     
     if(!!container.children[0]){
         container.appendChild(document.createElement("hr"));
@@ -18,6 +17,8 @@ var createContainer = (obj) => {
         var subContainer = document.createElement("div");
             subContainer.className = "subContainerContent";
             subContainer.id = obj.id;
+            subContainer.dataset.leng = obj.leng;
+
         content.appendChild(subContainer);
     container.appendChild(content);
 }
@@ -32,7 +33,7 @@ var createContent = (obj) => {
         } else {
             content.style.background = obj.solidBg;
         }
-        content.setAttribute("onclick", 'openContent('+obj.onClick+')');
+        content.addEventListener("click", ()=>openContent(obj.onClick));
 
         var contentContainer = document.createElement("div");
             contentContainer.className = "itenContainer";
@@ -47,9 +48,9 @@ var createContent = (obj) => {
             var contentDesc = document.createElement("p");
                 contentDesc.className = "itenDesc";
                 contentDesc.style.color = !obj.color? undefined: obj.color;
-                contentDesc.innerHTML = !obj.type? "": "Project type: "+obj.type + "<br><br>";
+                contentDesc.innerHTML = !obj.type? "": (container.dataset.leng != "pt"? "Project type": "Tipo de projeto")+": "+obj.type + "<br><br>";
                 contentDesc.innerHTML += obj.desc;
-            contentContainer.appendChild(contentDesc); 
+            contentContainer.appendChild(contentDesc);
         content.appendChild(contentContainer);
     container.appendChild(content);
 }
@@ -57,7 +58,7 @@ var createContent = (obj) => {
 var openContent = (action) => {
     if(typeof action == "function"){
         action();
-    } else {
-        window.open(action);
+    } else { 
+        window.open(action, "_self");
     }
 }

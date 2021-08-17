@@ -10,15 +10,29 @@
     outline: none;
 }
 
+html {
+    background-color: var(--titleColor);
+    overflow: hidden;
+    width: 100%;
+}
+
 body {
     margin: 0;
     overflow: overlay;
 
-    background: url(/content/imgs/bg/NaNScriptsBg.jpg);
+    background: url(/content/imgs/bg/NaNScriptsBg.jpg), var(--titleColor);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    /* prevent overscroll bounce*/
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /* iOS velocity scrolling */
 }
 
 h1 {
@@ -29,6 +43,7 @@ h1 {
 
 a {
     text-decoration: none;
+    color: var(--titleColor);
 }
 a:visited {
     color: var(--titleColor);
@@ -193,4 +208,16 @@ span, p, h1 {
 ::-webkit-scrollbar-track{
     background: transparent;
     border-radius: 10px;
+}
+
+
+@media screen and (max-width: 331px) {
+        .nanGit {
+            border-radius: 0;
+        }
+}
+@media screen and (max-width: 600px) {
+    .subContainerIten:hover .itenContainer {
+        background: rgba(0,0,0,.2);
+    }
 }

@@ -270,7 +270,7 @@ span, p, h1 {
     max-height: 0px;
     opacity: 0;
     pointer-events: none;
-    transition: max-height 1s, opacity 2s;
+    transition: max-height 1s, opacity 2.5s;
 }
 .tranlateContainer button:not(.tranlateContainer button:last-of-type) {
     margin-bottom: 10px;

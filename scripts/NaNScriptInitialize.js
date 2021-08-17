@@ -9,8 +9,8 @@ createContent({
     color: "white", 
     solidBg: "transparent",
     title: "Project types",
-    desc: "Get to know a little of NaN Script's project types and it's meanings:<br><br>- Preview<br>- Project<br>- MPP<br>- Node JS<br>- Userscript<br>- Web App",
-    onClick: "'./topics/projectTypes/'"
+    desc: "Get to know a little of NaN Scripts project types and its meanings:<br><br>- Preview<br>- Project<br>- MPP<br>- Node JS<br>- Userscript<br>- Web App",
+    onClick: "./topics/projectTypes/"
 });
 
 
@@ -27,7 +27,7 @@ createContent({
     title: "Viewport", 
     type: "Web App, Preview",
     desc: "Little screen for pixel animations.<br><br>Some tools and logics for helping in the animations.",
-    onClick: "'./projects/Viewport/'"
+    onClick: "./projects/Viewport/"
 });
 
 createContent({
@@ -37,8 +37,8 @@ createContent({
     title: "ＰＪＳＭＰ",
     type: "MPP",
     elemTitle: "Pure JavaScrip Midi Player (remake)",
-    desc: "Follow PJSMP's scripts and releases here!<br><br>PJSMP (RE) is a auto player (MIDI player) made for Multiplayer Piano.",
-    onClick: "'./projects/PJSMP/'"
+    desc: "Follow PJSMPs scripts and releases here!<br><br>PJSMP (RE) is a auto player (MIDI player) made for Multiplayer Piano.",
+    onClick: "./projects/PJSMP/"
 });
 
 createContent({
@@ -48,7 +48,7 @@ createContent({
     title: "Chat Hyperlinks", 
     type: "MPP",
     desc: "Working in progress!<br><br>Interactive links, images and videos directly from the Multiplayere Piano chat.",
-    onClick: "'./projects/ChatHyperlinks/'"
+    onClick: "./projects/ChatHyperlinks/"
 });
 
 
@@ -63,8 +63,8 @@ createContent({
     color: "var(--titleColor)",
     background: "../content/imgs/banners/luishenriquesite.jpg",
     title: "Luís Henrique - Site",
-    desc: "Area for projects in portugue.",
-    onClick: "'./pt/'"
+    desc: "Area for projects in portuguese, my native lenguage.",
+    onClick: "./pt/"
 });
 
 createContent({
@@ -73,5 +73,5 @@ createContent({
     background: "./more/githug/content/imgs/hugwallpaper.jpeg",
     title: "GitHug", 
     desc: "Charsy 🤗",
-    onClick: "'./more/githug/'"
+    onClick: "./more/githug/"
 });

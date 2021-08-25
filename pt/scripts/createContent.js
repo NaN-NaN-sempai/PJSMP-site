@@ -10,7 +10,7 @@ createContent({
     color: "white", 
     solidBg: "transparent",
     title: "Tipos de projeeto",
-    desc: "Pequena explicação de dos tipos de projetos que estão e serão postados aqui: <br><br>- Previa<br><br>- Projeto<br><br>- Node JS<br><br>- Userscript<br><br>- Web App",
+    desc: "Pequena explicação de dos tipos de projetos que estão e serão postados aqui:<br>- Previa<br>- Projeto<br>- Node JS<br>- Userscript<br>- Web App",
     onClick: "./topicos/tiposDeProjetos/"
 });
 
@@ -23,6 +23,7 @@ createContent({
     onClick: ()=>{}
 });
  */
+
 
 // ############################################## PROJECTS #############################################
 createContainer({
@@ -37,11 +38,26 @@ createContent({
     color: "white",
     background: "./content/imgs/rpgDeTurnoBanner.png",
     title: "RPG de Turno Node Js", 
-    type: "Projeto, Node JS",
+    type: ["Projeto", "Node JS"],
     desc: "Projeto de um jogo RPG de turno feito em Node Js.",
     onClick: "https://github.com/NaN-NaN-sempai/RPG-de-turno-NodeJS"
 });
 
+
+// ############################################## STUDIES #############################################
+createContainer({
+    title: "Testes e Estudos",
+    id: "studies"
+});
+
+createContent({
+    id: "studies",
+    color: "white",
+    solidBg: "transparent",
+    title: "Sem tópicos",
+    desc: "Sem tópicos por enquanto, mas futuros tópicos irão aparecer aqui!",
+    onClick: ()=>{}
+});
 
 
 // ############################################## MORE #############################################

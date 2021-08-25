@@ -4,7 +4,14 @@
 
     --textShadowColor: #010a30;
 
-    --textShadow: 0px 0px 5px var(--textShadowColor), 0px 0px 5px var(--textShadowColor), 0px 1px 2px var(--textShadowColor)
+    --textShadow: 0px 0px 5px var(--textShadowColor), 0px 0px 5px var(--textShadowColor), 0px 1px 2px var(--textShadowColor);
+
+    --typePreviewColor: rgb(90,200,90);
+    --typeProjectColor: rgb(200,90,90);
+    --typeMPPColor: rgb(170,170,170);
+    --typeNodeJSColor: #739e32;
+    --typeUserscript: #327010;
+    --typeWebAppColor: rgb(100,180,255);
 }
 * {
     outline: none;
@@ -139,6 +146,29 @@ span, p, h1 {
     width: 80%; 
 }
 
+.typeContainer{
+    text-align: center;
+    margin: 0;
+}
+
+.Preview {
+    color: var(--typePreviewColor);
+}
+.Project {
+    color: var(--typeProjectColor);
+}
+.MPP {
+    color: var(--typeMPPColor);
+}
+.Node_JS {
+    color: var(--typeNodeJSColor);
+}
+.Userscript {
+    color: var(--typeUserscript);
+}
+.Web_App {
+    color: var(--typeWebAppColor);
+}
 
 
 
@@ -185,7 +215,6 @@ span, p, h1 {
     font-size: 13px;
     font-weight: normal;
 }
-
 
 ::-webkit-scrollbar {
     width: 10px;

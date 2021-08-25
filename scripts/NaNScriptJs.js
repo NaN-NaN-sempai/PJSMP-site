@@ -1,3 +1,4 @@
+var containers = [];
 var createContainer = (obj) => {
     var container = document.getElementsByClassName("mainContainer")[0];
     
@@ -5,7 +6,6 @@ var createContainer = (obj) => {
         container.appendChild(document.createElement("hr"));
     }
 
-    
     var content = document.createElement("div");
         content.className = "subContainer"; 
 
@@ -21,6 +21,11 @@ var createContainer = (obj) => {
 
         content.appendChild(subContainer);
     container.appendChild(content);
+
+    containers.push({
+        id: obj.id,
+        content: []
+    });
 }
 
 var createContent = (obj) => {
@@ -48,11 +53,37 @@ var createContent = (obj) => {
             var contentDesc = document.createElement("p");
                 contentDesc.className = "itenDesc";
                 contentDesc.style.color = !obj.color? undefined: obj.color;
-                contentDesc.innerHTML = !obj.type? "": (container.dataset.leng != "pt"? "Project type": "Tipo de projeto")+": "+obj.type + "<br><br>";
+
+                var typeContainer = document.createElement("p");
+                    typeContainer.className = "typeContainer";
+                
+                    if(typeof obj.type == "object" && typeof obj.type[0] != "undefined"){
+                    var forPt = {
+                        "Previa": "Preview",
+                        "Projeto": "Project", 
+                    }
+                    obj.type.forEach((e,i) => {
+                        var span = document.createElement("span");
+                            span.className = (forPt[e] == undefined? e: forPt[e]).replace(" ", "_");
+                            span.innerHTML = e;
+
+                        typeContainer.append(span);
+                        
+                        var comma = document.createElement("span");
+                            comma.style.color = !obj.color? undefined: obj.color;
+                            comma.innerHTML = (i != obj.type.length - 1? ", ": "<br><br>")
+                        typeContainer.append(comma);
+                    });
+
+                contentDesc.append(typeContainer);
+                }
+
                 contentDesc.innerHTML += obj.desc;
             contentContainer.appendChild(contentDesc);
         content.appendChild(contentContainer);
     container.appendChild(content);
+
+    containers.find(e=>e.id == obj.id).content.push(obj);
 }
 
 var openContent = (action) => {

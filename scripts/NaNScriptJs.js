@@ -27,9 +27,12 @@ var createContainer = (obj) => {
         content: []
     });
 }
-
+var typeCounter = 0;
 var createContent = (obj) => {
     var container = document.getElementById(obj.id);
+
+    var typeContainer;
+    myObjExists = typeof obj.type == "object" && typeof obj.type[0] != "undefined";
 
     var content = document.createElement("div");
         content.className = "subContainerIten";  
@@ -53,30 +56,32 @@ var createContent = (obj) => {
             var contentDesc = document.createElement("p");
                 contentDesc.className = "itenDesc";
                 contentDesc.style.color = !obj.color? undefined: obj.color;
-
-                var typeContainer = document.createElement("p");
-                    typeContainer.className = "typeContainer";
                 
-                    if(typeof obj.type == "object" && typeof obj.type[0] != "undefined"){
-                    var forPt = {
-                        "Previa": "Preview",
-                        "Projeto": "Project", 
-                    }
-                    obj.type.forEach((e,i) => {
-                        var span = document.createElement("span");
-                            span.className = (forPt[e] == undefined? e: forPt[e]).replace(" ", "_");
-                            span.innerHTML = e;
-
-                        typeContainer.append(span);
+                    if(myObjExists){
+                        typeContainer = document.createElement("p");
+                        typeContainer.className = "typeContainer typeContainerLenght"+(typeCounter++);
                         
-                        var comma = document.createElement("span");
-                            comma.style.color = !obj.color? undefined: obj.color;
-                            comma.innerHTML = (i != obj.type.length - 1? ", ": "<br><br>")
-                        typeContainer.append(comma);
-                    });
+                        var forPt = {
+                            "Previa": "Preview",
+                            "Projeto": "Project", 
+                        }
+                        obj.type.forEach((e,i) => {
+                            var span = document.createElement("span");
+                                span.className = (forPt[e] == undefined? e: forPt[e]).replace(" ", "_") + " typeSpan";
+                                span.innerHTML = e;  
 
-                contentDesc.append(typeContainer);
-                }
+                            typeContainer.append(span);
+                            
+                            var comma = document.createElement("span");
+                                comma.style.color = !obj.color? undefined: obj.color;
+                                comma.innerHTML = (i != obj.type.length - 1? ", ": "");
+                            typeContainer.append(comma);
+                        }); 
+
+                        contentDesc.append(typeContainer);
+ 
+                        
+                    }
 
                 contentDesc.innerHTML += obj.desc;
             contentContainer.appendChild(contentDesc);
@@ -84,6 +89,15 @@ var createContent = (obj) => {
     container.appendChild(content);
 
     containers.find(e=>e.id == obj.id).content.push(obj);
+
+    if(myObjExists){
+        Array.from(document.querySelector("."+typeContainer.className.replace(" ", ".")).querySelectorAll("span.typeSpan")).forEach(e => {
+            e.addEventListener("click", (event)=>{
+                event.stopPropagation();
+                alert(e.innerHTML+"\nWorking in progress!");
+            })
+        });
+    }
 }
 
 var openContent = (action) => {

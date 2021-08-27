@@ -85,7 +85,7 @@ span, p, h1 {
     background-position: center;  
     flex: 1 1 30%;
     margin: 10px;
-    height: 12vw; 
+    height: 150px; 
     backdrop-filter: blur(10px);
     border-radius: 20px; 
     overflow: hidden;

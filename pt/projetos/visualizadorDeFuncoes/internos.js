@@ -1,4 +1,4 @@
-var criar_ponto = (x, y, tamanho) => {
+var criar_ponto = (x, y, valorX, valorY, tamanho) => {
     var container = document.querySelector(".container");
 
     if(isNaN(x) || isNaN(y)) {
@@ -6,7 +6,7 @@ var criar_ponto = (x, y, tamanho) => {
     }
     var ponto = document.createElement("div");
         ponto.className = "ponto";
-        ponto.title = "x: " + x + "\ny: " + y;
+        ponto.title = "x: " + valorX + "\ny: " + valorY;
         ponto.style.left = (x + 50) + "%";
         ponto.style.bottom = (y + 50) + "%";
         ponto.style.width = ponto.style.height = (tamanho || 5) + "px"
@@ -22,7 +22,7 @@ var executar_funcao = (funcao) => {
     var yZoom = parseFloat(document.getElementById("yZoom").value);
 
     for(i = -50; i < 50; i += 1/resolucao){
-        criar_ponto(i * xZoom, funcao(i) * yZoom, tamanho);
+        criar_ponto(i * xZoom, funcao(i) * yZoom, i, funcao(i), tamanho);
     }
 }
 

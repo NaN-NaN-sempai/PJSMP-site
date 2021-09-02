@@ -57,23 +57,23 @@ document.getElementById("equacao").addEventListener("input", () => {
 });
 
 
-var calcularRaiz = (f, treshHolderInput) => {
+var calcular_raiz = (f, xInicial, treshHolderInput) => {
     var treshHolder = treshHolderInput || 1 / 1000;
     var derivada = x => ((f(x+treshHolder)) - (f(x))) / treshHolder;
 
-    var xI = 0;
-    var xN = undefined;
+    var xN = xInicial;
+    var xN1 = undefined;
 
-    var myBool = false;
+    var pararRepeticao = false;
 
     var antiOverflow = 0;
 
-    while(!myBool){
-        xN = xI - (f(xI) / derivada(xI));
+    while(!pararRepeticao){
+        xN1 = xN - (f(xN) / derivada(xN));
 
-        myBool = !(xN - xI);
+        pararRepeticao = !(xN1 - xN);
 
-        xI = xN;
+        xN = xN1;
 
         if(antiOverflow++ == 500) {
             alert("Limite de iterações atingido!\nPonto mais proximo: "+xN);
@@ -81,8 +81,9 @@ var calcularRaiz = (f, treshHolderInput) => {
         }
     }
 
-    return xN;
+    return xN1;
 }
+
 
 
 
@@ -96,7 +97,8 @@ document.getElementById("zoom").addEventListener("input", () => {
 document.getElementById("yZoom").addEventListener("input", reiniciar);
 document.getElementById("xZoom").addEventListener("input", reiniciar);
 document.getElementById("calcularRaiz").addEventListener("click", () => {
-    var raiz = calcularRaiz(ultima_funcao);
+    var xInicial = parseFloat(document.getElementById("numeroInicial").value); 
+    var raiz = calcular_raiz(ultima_funcao, xInicial);
 
     var tamanho = parseFloat(document.getElementById("tamanho").value);
     var xZoom = parseFloat(document.getElementById("xZoom").value);

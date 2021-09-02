@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo de Newton</title>
+    <style>
+        * {
+            margin: 0;
+            user-select: none;
+        }
+        .container {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, transparent 49.8%, black 49.8%, black 50.2%, transparent 50.2%),
+                        linear-gradient(to top, transparent 49.8%, black 49.8%, black 50.2%, transparent 50.2%);
+            position: absolute;
+            overflow: hidden;
+        }
+        .ponto {
+            background: red;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            position: absolute;
+        }
+        .controladores {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="container"></div>
+
+    <div class="controladores">
+        <input id="equacao" value="x => Math.pow(x, 3)"> <label>Equação</label> <br>
+        <input type="range" id="resolucao" value="10" step="1" min="1" max="20"> <label>Resolução</label> <br>
+        <input type="range" id="xZoom" value="1" step=".1" min="1" max="10"> <label>Zoom em X</label> <br>
+        <input type="range" id="yZoom" value="1" step=".1" min="1" max="10"> <label>Zoom em Y</label> 
+    </div>
+</body>
+<script src="./internos.js"></script>
+</html>

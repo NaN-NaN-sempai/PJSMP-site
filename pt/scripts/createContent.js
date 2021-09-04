@@ -9,7 +9,7 @@ createContent({
     id: "topics",
     color: "white", 
     solidBg: "transparent",
-    title: "Tipos de projeeto",
+    title: "Tipos de projeto",
     desc: "Pequena explicação de dos tipos de projetos que estão e serão postados aqui:<br>- Previa<br>- Projeto<br>- Node JS<br>- Userscript<br>- Web App",
     onClick: "./topicos/tiposDeProjetos/"
 });

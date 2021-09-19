@@ -39,7 +39,8 @@ createContent({
     solidBg: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
     title: "Visualizador de Funções", 
     type: ["Web App", "Previa"],
-    desc: "Visualizador de funções usando Javascript e HTML.",
+    desc: `Visualizador de funções usando Javascript e HTML.<br>
+           <i>Update (18/09/2021):</i> Agora com linhas entre os pontos.`,
     onClick: "./projetos/visualizadorDeFuncoes/"
 });
 

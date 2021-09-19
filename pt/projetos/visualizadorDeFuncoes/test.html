@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/png" href="../../../content/imgs/logo/logo.png"/> 
+    <title>test</title>
+    <style>
+        * {
+            margin: 0;
+            user-select: none;
+            outline: none;
+        }
+        body {
+            overflow: hidden;
+        }
+        div {
+            width: 200px;
+            height: 20px;
+            opacity: .7;
+            background: blue;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+        }
+        div:nth-child(1){
+            background: yellow;
+            transform: translate(50%, -50%) rotate(45deg);
+        }
+        div:nth-child(3){
+            background: red;
+        }
+        </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+    window.onresize = () => calcAngle()
+    var calcAngle = () => {
+        var x1 = 0, y1 = 0;
+        var x2 = window.innerWidth, y2 = window.innerHeight;
+
+        var a = (Math.atan2((y2 - x1), (x2 - y1)) * (180 / Math.PI));
+        document.getElementsByTagName("div")[1].style.transform = "translate(50%, -50%) rotate("+a+"deg)"
+    }
+    window.addEventListener("mousemove", ({clientX: x1, clientY: y1}) => {
+        
+
+        var x2 = window.innerWidth, y2 = window.innerHeight;
+
+        const { sin, atan, asin, sqrt, PI } = Math;
+        var angulo = (Math.atan2((y1 - y2/2), (x1 - x2/2)) * (180 / Math.PI)) + 180;
+        const sinOff = sin(atan(y2/x2)) / (sqrt(2)*y2) * (x2-y2);
+        const off = asin(sinOff) * 180 / PI;
+        const angle = 45 - off;
+
+        document.getElementsByTagName("div")[2].style.transform = "translate(50%, -50%) rotate("+(angle)+"deg)"
+    })
+    calcAngle();
+</script>
+</html>

@@ -67,7 +67,7 @@ var reiniciar = () => {
     executar_funcao(ultima_funcao)
 }
 
-var funcao_padrao = x => Math.tan(x, 3);
+var funcao_padrao = x => Math.pow(x, 3);
 document.getElementById("equacao").addEventListener("input", () => {
     var equacao = document.getElementById("equacao");
     var span = document.getElementById("equacaoSpan");

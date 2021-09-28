@@ -4,6 +4,9 @@
 
     --textShadowColor: #010a30;
 
+    --buttonBg: #001f4ef3;
+    --buttonBgHover: #27607ef3;
+
     --textShadow: 0px 0px 5px var(--textShadowColor), 0px 0px 5px var(--textShadowColor), 0px 1px 2px var(--textShadowColor);
 
 
@@ -43,6 +46,8 @@ body {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     /* iOS velocity scrolling */
+
+    overflow-x: hidden;
 }
 
 h1 {
@@ -129,14 +134,22 @@ span, p, h1 {
     border: solid var(--titleColorLighter) 2px;
     box-shadow: var(--textShadow);
     margin-bottom: 40px;
-    border-radius: 30px; 
+    border-radius: 30px;    
     width: 95%;
+    height: fit-content;
+    max-height: 0px; 
 
-    position: relative;
-    left: 50%;
+    overflow-y: hidden;
+
+    position: absolute;
+    left: 150%;
+
+    pointer-events: none;
     
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+
+    transition: left 2s, max-height 2s;
 }
 .mainContainer hr { 
     background-color: var(--titleColorLighter);
@@ -144,6 +157,70 @@ span, p, h1 {
     box-shadow: var(--textShadow);
     height: 0px;
     width: 80%; 
+}
+.mainContainer1{
+    left: -50%;
+}
+.mainContainer2 {
+    left: 150%;
+}
+.mainContainerFocus {
+    left: 50%;
+    max-height: 9999px;
+    pointer-events: auto;
+}
+.titleMaincontainer2 {
+    margin: 0;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    color: white;
+    font-size: 50px;
+}
+.goBackToContainer1Btn {
+    margin-left: 45px;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    width: 70px;
+    height: 40px;
+    border-radius: 30px;
+    border: solid var(--titleColorLighter) 2px;
+    box-shadow: var(--textShadow);
+    background: var(--buttonBg);
+    color: var(--titleColor);
+    overflow: hidden;
+    transition: background .5s, border-color .5s;
+}
+.goBackToContainer1Btn:hover {
+    background: var(--buttonBgHover);
+    border-color: black;
+}
+.goBackToContainer1Btn:active {
+    background: black;
+    transition: background .3s;
+}
+.goBackToContainer1Btn::after {
+    content: attr(data-inner-text);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left cubic-bezier(0.71, 0.37, 0.21, 0.97) 1s;
+}
+.goBackToContainer1Btn:hover::after {
+    left: 150%;
+}
+.goBackToContainer1Btn::before {
+    content: "\00AB";
+    position: absolute;
+    left: -10%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 1s;
+}
+.goBackToContainer1Btn:hover::before {
+    left: 50%;
 }
 
 .typeContainer{
@@ -254,12 +331,22 @@ span, p, h1 {
 
 
 @media screen and (max-width: 331px) {
-        .nanGit {
-            border-radius: 0;
-        }
+    .nanGit {
+        border-radius: 0;
+    }
 }
 @media screen and (max-width: 600px) {
     .subContainerIten:hover .itenContainer {
         background: rgba(0,0,0,.2);
     }
+    
+    .subContainerIten {
+        height: 200px !important;
+        flex: 1 1 50% !important;
+    }
 }
+@media screen and (min-width: 1150px) {
+    .mainContainer {
+      width: 1100px;
+    }
+  }

@@ -8,9 +8,82 @@ createContent({
     id: "topics",
     color: "white", 
     solidBg: "transparent",
-    title: "Project types",
-    desc: "Get to know a little of NaN Scripts project types and its meanings:<br><br>- Preview<br>- Project<br>- MPP<br>- Node JS<br>- Userscript<br>- Web App",
-    onClick: "./topics/projectTypes/"
+    title: "Project Types",
+    desc: `Get to know a little of NaN Scripts project types and its meanings:
+        <br>
+        <br>- <span class="Preview">Preview</span>
+        <br>- <span class="Project">Project</span>
+        <br>- <span class="MPP">MPP</span>
+        <br>- <span class="Node_JS">Node JS</span>
+        <br>- <span class="Userscript">Userscript</span>
+        <br>- <span class="Web_App">Web App</span>`,
+    onClick: (name)=>{
+        var containersArr = [];
+        var contentsArr = [];
+        
+        var createContainer = obj => containersArr.push(obj);
+        var createContent = obj => contentsArr.push(obj);
+
+        createContainer({
+            title: "Project Types",
+            id: "projectTypes"
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            solidBg: "rgb(90,200,90)",
+            title: "Preview",
+            desc: "Previewable projects<br><br>Projects that can be previewable just by clicking in its link.",
+            onClick: ()=>{}
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            solidBg: "rgb(200,90,90)",
+            title: "Project",
+            desc: "Just project<br><br>Its link send you to its project location.",
+            onClick: ()=>{}
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "rgb(170,170,170)",
+            background: "../topics/projectTypes/content/imgs/mppBanner.jpg",
+            title: "MPP",
+            desc: "Multiplayer Piano<br><br>Projects or scripts made for Multiplayer Piano.",
+            onClick: "https://multiplayerpiano.com/"
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            background: "../topics/projectTypes/content/imgs/nodeBanner.png",
+            title: "Node JS",
+            desc: "Node JS projects<br><br>Server, examples, web service, and desktop apps using Node JS.",
+            onClick: "https://nodejs.org/"
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            background: "../topics/projectTypes/content/imgs/tamperBanner.png",
+            title: "Userscript",
+            desc: "Userscript projects<br><br>Web sites custom scripts using Userscript client.<br><br>Recommended: Tampermonkey.",
+            onClick: "https://www.tampermonkey.net/"
+        });
+
+        createContent({
+            id: "projectTypes",
+            color: "rgb(100,180,255)",
+            background: "../topics/projectTypes/content/imgs/webBanner.jpg",
+            title: "Web App",
+            desc: "Web Projects<br><br>Projects, pages or scripts using HTML, CSS and JavaScript for executing web application." 
+        });
+
+        openContentInContainer2(name, containersArr, contentsArr);
+    }
 });
 
 
@@ -38,7 +111,77 @@ createContent({
     title: "Viewport", 
     type: ["Web App", "Preview"],
     desc: "Little screen for pixel animations.<br><br>Some tools and logics for helping in the animations.",
-    onClick: "./projects/Viewport/"
+    onClick: (name)=>{
+        document.location.href = "#openContent="+name.replace(" ", "_");
+        var containersArr = [];
+        var contentsArr = [];
+
+        containersArr.push({
+            title: "Animations",
+            id: "animations"
+        });
+
+        contentsArr.push({
+            id: "animations",
+            color: "white",//../projecs/Viewport
+            background: "../projects/Viewport/imgs/linkProjectBanner.png",
+            title: "Link Animation",
+            desc: "Click to open in another tab.<br><br>Little animation of Link head.",
+            onClick: ()=>window.open('../projects/Viewport/link.html')
+        });
+
+        contentsArr.push({
+            id: "animations",
+            color: "white",
+            background: "../projects/Viewport/imgs/fireSimulationBanner.png",
+            title: "Fire Simulation",
+            desc: "Click to open in another tab.<br><br>Fire simulations attempt that i made.",
+            onClick: ()=>window.open('../projects/Viewport/fire.html')
+        });
+
+        containersArr.push({
+            title: "Codes",
+            id: "codes"
+        });
+
+        contentsArr.push({
+            id: "codes",
+            color: "white",
+            background: "../projects/Viewport/imgs/animationCore.png",
+            title: "Animation core codes",
+            desc: "Click to open in another tab.<br><br>Animation core code to you know how it works.",
+            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/internal.js")
+        });
+
+        contentsArr.push({
+            id: "codes",
+            color: "white",
+            background: "../projects/Viewport/imgs/linkProjectBanner.png",
+            title: "Link animation code",
+            desc: "Click to open in another tab.<br><br>Link animation code.",
+            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/link.js")
+        });
+
+        contentsArr.push({
+            id: "codes",
+            color: "white",
+            background: "../projects/Viewport/imgs/fireSimulationBanner.png",
+            title: "Fire Simulation code",
+            desc: "Click to open in another tab.<br><br>Fire Simulation code.",
+            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/fire.js")
+        });
+
+        contentsArr.push({
+            id: "codes",
+            color: "white",
+            background: "../projects/Viewport/imgs/animationCore.png",
+            title: "Project Files",
+            desc: "Click to open in another tab.<br><br>Project folder to you to copy and try your self.",
+            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/")
+        });
+
+        openContentInContainer2(name, containersArr, contentsArr);
+    }
 });
 
 createContent({

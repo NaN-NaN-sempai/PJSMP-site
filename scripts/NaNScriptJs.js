@@ -170,7 +170,7 @@ var tagOnclick = (event) => {
 var searchForTag = (tag) => {
     removeContentContainer2();
 
-    document.location.href ="#searchForTag="+tag;
+    document.location.href ="#tagFilter="+tag;
 
     var forPt = {
         "Preview": "Previa",
@@ -210,7 +210,7 @@ var searchForTag = (tag) => {
 } 
 
 var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
-    document.location.href = "#openContent="+contentName.replaceAll(" ", "_");
+    document.location.href = "#content="+contentName.replaceAll(" ", "_");
 
     var doFocus = () => {
         removeContentContainer2();
@@ -237,7 +237,7 @@ var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
         changeContainerFocus();
 
         setTimeout(() => {
-            document.location.href = "#openContent="+contentName.replaceAll(" ", "_");
+            document.location.href = "#content="+contentName.replaceAll(" ", "_");
             doFocus();
             setTimeout(()=>container1.style.pointerEvents = "auto", 600);
         }, 1500);
@@ -254,10 +254,10 @@ window.addEventListener("load", e => {
     var params = document.location.href.replace(document.location.origin+document.location.pathname, "");
 
     if(params.includes("#")){
-        if(params.includes("searchForTag")){
+        if(params.includes("tagFilter")){
             searchForTag(params.split("=")[1]);
 
-        } else if(params.includes("openContent")){
+        } else if(params.includes("content")){
             var param = params.split("=")[1];
             var content = findContentOnObj(param);
             if(content != undefined){

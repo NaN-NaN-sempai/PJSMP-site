@@ -217,7 +217,7 @@ createContent({
     solidBg: "transparent",
     title: "No topics",
     desc: "Theres no topics right now, but, in the future, new topics will appear right here!",
-    onClick: "./topics/projectTypes/"
+    onClick: ()=>{}
 });
 
 // ############################################## MORE #############################################

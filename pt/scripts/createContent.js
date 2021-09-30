@@ -16,8 +16,8 @@ createContent({
         <br>- <span class="Node_JS">Node JS</span>
         <br>- <span class="Userscript">Userscript</span>
         <br>- <span class="Web_App">Web App</span>`,
+    onClickType: "content",
     onClick: (name)=>{
-        document.location.href = "#openContent="+name.replace(" ", "_");
         var containersArr = [];
         var contentsArr = [];
         

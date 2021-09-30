@@ -59,12 +59,14 @@ h1 {
 a {
     text-decoration: none;
     color: var(--titleColor);
+    cursor: pointer;
 }
 a:visited {
-    color: var(--titleColor);
+    color: var(--titleColorLighter);
 }
 
-span, p, h1 {
+span, p, h1, .mainPageTitle a:visited {
+    text-decoration-color: none; 
     color: var(--titleColor);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -178,6 +180,7 @@ span, p, h1 {
     font-size: 50px;
 }
 .goBackToContainer1Btn {
+    cursor: pointer;
     margin-left: 45px;
     margin-top: 10px;
     transform: translateX(-50%);
@@ -228,36 +231,36 @@ span, p, h1 {
     margin: 5px;
     margin-bottom: 25px;
 }
-.typeContainer span.typeSpan {
+.typeContainer a.typeSpan {
     background: transparent;
     padding: 0;
     border-radius: 10px;
     cursor: pointer;
     transition: background .2s, padding .2s;
 }
-.typeContainer span.typeSpan:hover {
+.typeContainer a.typeSpan:hover {
     padding-left: 7;
     padding-right: 7;
     background: var(--typeSpanHover);
 }
 
 .Preview {
-    color: var(--typePreviewColor);
+    color: var(--typePreviewColor) !important;
 }
 .Project {
-    color: var(--typeProjectColor);
+    color: var(--typeProjectColor) !important;
 }
 .MPP {
-    color: var(--typeMPPColor);
+    color: var(--typeMPPColor) !important;
 }
 .Node_JS {
-    color: var(--typeNodeJSColor);
+    color: var(--typeNodeJSColor) !important
 }
 .Userscript {
-    color: var(--typeUserscript);
+    color: var(--typeUserscript) !important;
 }
 .Web_App {
-    color: var(--typeWebAppColor);
+    color: var(--typeWebAppColor) !important
 }
 
 

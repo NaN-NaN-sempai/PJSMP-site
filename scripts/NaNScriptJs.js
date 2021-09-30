@@ -36,14 +36,14 @@ var createContent = (obj, notForSecondary = true) => {
     var typeContainer;
     myObjExists = typeof obj.type == "object" && typeof obj.type[0] != "undefined";
 
-    var content = document.createElement("div");
+    var content = document.createElement("a");
         content.className = "subContainerIten";  
         if(!obj.solidBg){
             content.style.backgroundImage = "url("+obj.background+")";
         } else {
             content.style.background = obj.solidBg;
         }
-        content.addEventListener("click", (evt)=>openContent(obj.onClick, evt));
+        openContent(content, obj.onClickType, obj.title, obj.onClick, obj.target);
 
         var contentContainer = document.createElement("div");
             contentContainer.className = "itenContainer";
@@ -68,11 +68,13 @@ var createContent = (obj, notForSecondary = true) => {
                             "Projeto": "Project", 
                         }
                         obj.type.forEach((e,i) => {
-                            var span = document.createElement("span");
-                                span.className = (forPt[e] == undefined? e: forPt[e]).replace(" ", "_") + " typeSpan";
-                                span.innerHTML = e;  
+                            var link = document.createElement("a");
+                                var className = (forPt[e] == undefined? e: forPt[e]).replace(" ", "_");
+                                link.className = className + " typeSpan";
+                                link.href = "#tagFilter="+className;
+                                link.innerHTML = e;  
 
-                            typeContainer.append(span);
+                            typeContainer.append(link);
                             
                             var comma = document.createElement("span");
                                 comma.style.color = !obj.color? undefined: obj.color;
@@ -88,12 +90,6 @@ var createContent = (obj, notForSecondary = true) => {
         content.appendChild(contentContainer);
     container.appendChild(content);
 
-    if(myObjExists){
-        Array.from(document.querySelector("."+typeContainer.className.replace(" ", ".")).querySelectorAll("span.typeSpan")).forEach(e => {
-            e.addEventListener("click", tagOnclick);
-        });
-    }
-
     if(notForSecondary){
         var objParent = containers.find(e=>e.id == obj.id);
         obj.parent = objParent;
@@ -101,36 +97,39 @@ var createContent = (obj, notForSecondary = true) => {
     }
 }
 
-var openContent = (action, evt) => {
+var openContent = (element, type, title, action, target) => {
     if(typeof action == "function"){
-        var contentName = evt.path.find(e => e.classList?.contains("subContainerIten")).querySelector(".itenTitle").innerHTML;
-
-        action(contentName);
-    } else { 
-        window.open(action, "_self");
+        if(type != undefined){
+            element.href = "#"+type+"="+title.replaceAll(" ", "_");
+        } else {
+            element.addEventListener("click", () => action());
+        }
+    } else if(typeof action == "string"){ 
+        element.href = action;
+        element.target = target || "_self";
     }
 }
 
-var focusOnContainer1 = false;
+var checkFocus = () => {
+    var focusClass = "mainContainerFocus";
+    var container1 = "mainContainer1";
+
+    var focus = document.querySelector("."+focusClass);
+
+    return focus.classList.contains(container1);
+}
 var changeContainerFocus = (selectedContainer) => {
     const focusClass = "mainContainerFocus";
     const container1 = "mainContainer1";
     const container2 = "mainContainer2";
 
-    const focus = document.querySelector("."+focusClass);
-
-    focusOnContainer1 = focus.classList.contains(container1);
     const [removeFocus, addFocus] = typeof selectedContainer == "string"? [[container1,container2].find(e => e!=selectedContainer), selectedContainer]:
-                                    focusOnContainer1? [container1, container2]: [container2, container1];
+                                    checkFocus()? [container1, container2]: [container2, container1];
 
     document.querySelector("."+removeFocus).classList.remove(focusClass);
 
     if(!document.querySelector("."+addFocus).classList.contains(focusClass)){
         document.querySelector("."+addFocus).classList.add(focusClass);
-
-        if(addFocus == container1){
-            document.location.href = "#";
-        }
     }
 }
 
@@ -140,18 +139,17 @@ var removeContentContainer2 = () => {
 
     container.innerHTML = "";
 
-    var button = document.createElement("button");
-        button.className = "goBackToContainer1Btn";
-        button.dataset.innerText = !document.querySelector("*[data-leng=pt]")? "Go Back": "Voltar";
-        button.addEventListener("click", changeContainerFocus);
-    container.append(button);
+    var goBackLink = document.createElement("a");
+        goBackLink.href = "#";
+        var button = document.createElement("button");
+            button.className = "goBackToContainer1Btn";
+            button.dataset.innerText = !document.querySelector("*[data-leng=pt]")? "Go Back": "Voltar";
+        goBackLink.append(button);
+    container.append(goBackLink);
 }
 
-var tagOnclick = (event) => {
-    event.stopPropagation();
-    var tag = event.target.classList[0];
-
-    if(!focusOnContainer1){        
+var tagOnclick = (tag) => {
+    if(checkFocus()){        
         searchForTag(tag);
 
     } else {
@@ -169,8 +167,6 @@ var tagOnclick = (event) => {
 
 var searchForTag = (tag) => {
     removeContentContainer2();
-
-    document.location.href ="#tagFilter="+tag;
 
     var forPt = {
         "Preview": "Previa",
@@ -210,15 +206,12 @@ var searchForTag = (tag) => {
 } 
 
 var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
-    document.location.href = "#content="+contentName.replaceAll(" ", "_");
-
     var doFocus = () => {
         removeContentContainer2();
 
         var title = document.createElement("h1");
             title.className = "titleMaincontainer2";
-            title.innerHTML = contentName; 
-            console.log(contentName);
+            title.innerHTML = contentName;
         document.querySelector(".mainContainer2").append(title);
 
         contanersArr.forEach(e => createContainer(e, false));
@@ -227,7 +220,7 @@ var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
         changeContainerFocus("mainContainer2");
     }
 
-    if(!focusOnContainer1){
+    if(checkFocus()){
         doFocus();
 
     } else {
@@ -237,7 +230,6 @@ var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
         changeContainerFocus();
 
         setTimeout(() => {
-            document.location.href = "#content="+contentName.replaceAll(" ", "_");
             doFocus();
             setTimeout(()=>container1.style.pointerEvents = "auto", 600);
         }, 1500);
@@ -250,16 +242,23 @@ var findContentOnObj = (name) => {
     return content;
 }
 
-window.addEventListener("load", e => {
+var hrefChange = () => {
     var params = document.location.href.replace(document.location.origin+document.location.pathname, "");
 
-    if(params.includes("#")){
+    var title = document.head.querySelector("title");
+
+    if(params[0] == "#"){
+        var param = params.split("=")[1];
+        title.innerHTML = title.dataset.title == undefined || param == undefined? 
+                            title.dataset.title || title.innerHTML: 
+                            title.dataset.title + " | " + param?.replaceAll("_", " ");
+
         if(params.includes("tagFilter")){
-            searchForTag(params.split("=")[1]);
+            tagOnclick(param);
 
         } else if(params.includes("content")){
-            var param = params.split("=")[1];
             var content = findContentOnObj(param);
+
             if(content != undefined){
                 content.onClick(content.title);
 
@@ -279,9 +278,14 @@ window.addEventListener("load", e => {
 
                 changeContainerFocus("mainContainer2");
             }
+        } else if(params == "#"){
+            changeContainerFocus("mainContainer1");
 
         } else {
             document.location.href = "#";
         }
     }
-});
+}
+
+window.addEventListener("load", hrefChange);
+window.addEventListener('popstate', hrefChange);

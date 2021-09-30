@@ -17,37 +17,33 @@ createContent({
         <br>- <span class="Node_JS">Node JS</span>
         <br>- <span class="Userscript">Userscript</span>
         <br>- <span class="Web_App">Web App</span>`,
+    onClickType: "content",
     onClick: (name)=>{
         var containersArr = [];
         var contentsArr = [];
-        
-        var createContainer = obj => containersArr.push(obj);
-        var createContent = obj => contentsArr.push(obj);
 
-        createContainer({
+        containersArr.push({
             title: "Project Types",
             id: "projectTypes"
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "white",
             solidBg: "rgb(90,200,90)",
             title: "Preview",
-            desc: "Previewable projects<br><br>Projects that can be previewable just by clicking in its link.",
-            onClick: ()=>{}
+            desc: "Previewable projects<br><br>Projects that can be previewable just by clicking in its link."
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "white",
             solidBg: "rgb(200,90,90)",
             title: "Project",
-            desc: "Just project<br><br>Its link send you to its project location.",
-            onClick: ()=>{}
+            desc: "Just project<br><br>Its link send you to its project location."
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "rgb(170,170,170)",
             background: "../topics/projectTypes/content/imgs/mppBanner.jpg",
@@ -56,7 +52,7 @@ createContent({
             onClick: "https://multiplayerpiano.com/"
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "white",
             background: "../topics/projectTypes/content/imgs/nodeBanner.png",
@@ -65,7 +61,7 @@ createContent({
             onClick: "https://nodejs.org/"
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "white",
             background: "../topics/projectTypes/content/imgs/tamperBanner.png",
@@ -74,7 +70,7 @@ createContent({
             onClick: "https://www.tampermonkey.net/"
         });
 
-        createContent({
+        contentsArr.push({
             id: "projectTypes",
             color: "rgb(100,180,255)",
             background: "../topics/projectTypes/content/imgs/webBanner.jpg",
@@ -111,8 +107,8 @@ createContent({
     title: "Viewport", 
     type: ["Web App", "Preview"],
     desc: "Little screen for pixel animations.<br><br>Some tools and logics for helping in the animations.",
+    onClickType: "content",
     onClick: (name)=>{
-        document.location.href = "#openContent="+name.replace(" ", "_");
         var containersArr = [];
         var contentsArr = [];
 
@@ -123,11 +119,12 @@ createContent({
 
         contentsArr.push({
             id: "animations",
-            color: "white",//../projecs/Viewport
+            color: "white",
             background: "../projects/Viewport/imgs/linkProjectBanner.png",
             title: "Link Animation",
             desc: "Click to open in another tab.<br><br>Little animation of Link head.",
-            onClick: ()=>window.open('../projects/Viewport/link.html')
+            target: "_blank",
+            onClick: '../projects/Viewport/link.html'
         });
 
         contentsArr.push({
@@ -136,7 +133,8 @@ createContent({
             background: "../projects/Viewport/imgs/fireSimulationBanner.png",
             title: "Fire Simulation",
             desc: "Click to open in another tab.<br><br>Fire simulations attempt that i made.",
-            onClick: ()=>window.open('../projects/Viewport/fire.html')
+            target: "_blank",
+            onClick: '../projects/Viewport/fire.html'
         });
 
         containersArr.push({
@@ -150,7 +148,8 @@ createContent({
             background: "../projects/Viewport/imgs/animationCore.png",
             title: "Animation core codes",
             desc: "Click to open in another tab.<br><br>Animation core code to you know how it works.",
-            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/internal.js")
+            target: "_blank",
+            onClick: "https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/internal.js"
         });
 
         contentsArr.push({
@@ -159,7 +158,8 @@ createContent({
             background: "../projects/Viewport/imgs/linkProjectBanner.png",
             title: "Link animation code",
             desc: "Click to open in another tab.<br><br>Link animation code.",
-            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/link.js")
+            target: "_blank",
+            onClick: "https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/link.js"
         });
 
         contentsArr.push({
@@ -168,7 +168,8 @@ createContent({
             background: "../projects/Viewport/imgs/fireSimulationBanner.png",
             title: "Fire Simulation code",
             desc: "Click to open in another tab.<br><br>Fire Simulation code.",
-            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/fire.js")
+            target: "_blank",
+            onClick: "https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/fire.js"
         });
 
         contentsArr.push({
@@ -177,7 +178,8 @@ createContent({
             background: "../projects/Viewport/imgs/animationCore.png",
             title: "Project Files",
             desc: "Click to open in another tab.<br><br>Project folder to you to copy and try your self.",
-            onClick: ()=>window.open("https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/")
+            target: "_blank",
+            onClick: "https://github.com/NaN-NaN-sempai/NaN-NaN-sempai.github.io/blob/main/projects/Viewport/"
         });
 
         openContentInContainer2(name, containersArr, contentsArr);

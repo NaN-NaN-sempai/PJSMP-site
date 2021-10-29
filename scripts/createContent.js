@@ -103,18 +103,6 @@ createContent({
 createContent({
     id: "projects",
     color: "white",
-    background: "projects/HelloWorldVercel/vercel_logo.png",
-    solidBg: "white",
-    title: "Hello World in Vercel",
-    type: ["Node JS", "Web App", "Preview"],
-    elemTitle: "Hello World in Vercel",
-    desc: "My first deployment of a project with Node JS as back-end in Vercel.<br><br>In the front-end, you can hover the Vercel's logo on the middle of the screen to see a cool little effect that i made.<br><br>The back-end doesn't does nothing, it is just for testing the Vercel's deployment system and see how it works.",
-    onClick: "https://luisnwshelloworld.vercel.app/"
-});
-
-createContent({
-    id: "projects",
-    color: "white",
     background: "./projects/Viewport/imgs/linkProjectBanner.png",
     title: "Viewport", 
     type: ["Web App", "Preview"],
@@ -227,12 +215,36 @@ createContainer({
 
 createContent({
     id: "studies",
+    color: "white",
+    background: "studies/HelloWorldVercel/vercel_logo.png",
+    solidBg: "white",
+    title: "Hello World in Vercel",
+    type: ["Node JS", "Web App", "Preview"],
+    elemTitle: "Hello World in Vercel",
+    desc: "My first deployment of a project with Node JS as back-end in <a href='https://vercel.com/'>Vercel</a>.<br><br>In the front-end, you can hover the Vercel's logo on the middle of the screen to see a cool little effect that i made.<br><br>The back-end doesn't does nothing, it is just for testing the Vercel's deployment system and see how it works.",
+    onClick: "https://luisnwshelloworld.vercel.app/"
+});
+
+createContent({
+    id: "studies",
+    color: "white",
+    background: "studies/NWSToTheWorld/NWS_to_the_world.png",
+    solidBg: "white",
+    title: "NWS To The World!",
+    type: ["Web App", "Preview"],
+    elemTitle: "NWS To The World!",
+    desc: "Just a test in <a href='https://www.w3schools.com/'>W3schools</a>'s <a href='https://www.w3schools.com/spaces/'>W3spaces</a>.<br>In the page, there is just an image that send the user to my Discord server.",
+    onClick: "https://nwstotheworld.w3spaces.com/"
+});
+
+/* createContent({
+    id: "studies",
     color: "white", 
     solidBg: "transparent",
     title: "No topics",
     desc: "Theres no topics right now, but, in the future, new topics will appear right here!",
     onClick: ()=>{}
-});
+}); */
 
 // ############################################## MORE #############################################
 createContainer({

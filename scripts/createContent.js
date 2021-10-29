@@ -103,6 +103,18 @@ createContent({
 createContent({
     id: "projects",
     color: "white",
+    background: "projects/HelloWorldVercel/vercel_logo.png",
+    solidBg: "white",
+    title: "Hello World in Vercel",
+    type: ["Node JS", "Web App", "Preview"],
+    elemTitle: "Hello World in Vercel",
+    desc: "My first deployment of a project with Node JS as back-end in Vercel.<br><br>In the front-end, you can hover the Vercel's logo on the middle of the screen to see a cool little effect that i made.<br><br>The back-end doesn't does nothing, it is just for testing the Vercel's deployment system and see how it works.",
+    onClick: "https://luisnwshelloworld.vercel.app/"
+});
+
+createContent({
+    id: "projects",
+    color: "white",
     background: "./projects/Viewport/imgs/linkProjectBanner.png",
     title: "Viewport", 
     type: ["Web App", "Preview"],

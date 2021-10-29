@@ -99,7 +99,7 @@ createContainer({
 createContent({
     id: "projects",
     color: "white",
-    solidBg: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
+    background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
     title: "Visualizador de Funções", 
     type: ["Web App", "Previa"],
     desc: `Visualizador de funções usando Javascript e HTML.<br>
@@ -129,7 +129,7 @@ createContainer({
 createContent({
     id: "studies",
     color: "white",
-    solidBg: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
+    background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
     title: "Método de Newton-Raphson", 
     type: ["Web App", "Previa"],
     desc: 'Calcula e mostra a raiz de funções usando o método de Newton-Raphson, o visualizador é uma copia do projeto "Visualizador de Funções" encontrado na aba "Projetos".<br>Requisitado pela matéria <i>Matemática Aplicada</i> da minha faculdade.',

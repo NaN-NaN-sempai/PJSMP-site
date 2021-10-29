@@ -38,11 +38,12 @@ var createContent = (obj, notForSecondary = true) => {
 
     var content = document.createElement("a");
         content.className = "subContainerIten";  
-        if(!obj.solidBg){
-            content.style.backgroundImage = "url("+obj.background+")";
-        } else {
-            content.style.background = obj.solidBg;
-        }
+        
+        content.style.backgroundImage = obj.background? 
+                                        !obj.background.includes("/")?
+                                        obj.background: "url("+obj.background+")": "none";
+        content.style.backgroundColor = obj.solidBg? obj.solidBg: "transparent";
+        
         openContent(content, obj.onClickType, obj.title, obj.onClick, obj.target);
 
         var contentContainer = document.createElement("div");

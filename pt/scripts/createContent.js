@@ -136,7 +136,7 @@ createContent({
 });
 
 
-/* createContent({
+createContent({
     id: "studies",
     color: "white",
     background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",

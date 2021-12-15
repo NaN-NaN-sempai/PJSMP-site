@@ -22,7 +22,7 @@ createContent({
     desc: "Sem tópicos por enquanto, mas futuros tópicos irão aparecer aqui!",
     onClick: ()=>{}
 });
- */
+*/
 
 
 // ############################################## PROJECTS #############################################
@@ -31,7 +31,6 @@ createContainer({
     id: "projects",
     leng: "pt"
 });
-
 
 createContent({
     id: "projects",
@@ -72,14 +71,26 @@ createContainer({
     id: "studies"
 });
 
+
 createContent({
+    id: "studies",
+    color: "#00e3ff",
+    background: "./content/imgs/oficinaLogo.png",
+    title: "Site Oficina de Introdução a Computação", 
+    type: ["Web App", "Previa"],
+    desc: 'Site que criei com meu colega <a style="color: rgb(255, 30, 30)" href="https://github.com/Marckhos ">Marcos Santos</a> para uma oficina sobre introdução a computação da nossa matéria de estágio da faculdade.',
+    onClick: "https://oficina-introducao-computacao.vercel.app/"
+});
+
+
+/* createContent({
     id: "studies",
     color: "white",
     solidBg: "transparent",
     title: "Sem tópicos",
     desc: "Sem tópicos por enquanto, mas futuros tópicos irão aparecer aqui!",
     onClick: ()=>{}
-});
+}); */
 
 
 // ############################################## MORE #############################################

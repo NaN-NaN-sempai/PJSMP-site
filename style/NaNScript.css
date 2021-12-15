@@ -4,7 +4,13 @@
 
     --textShadowColor: #010a30;
 
+    --buttonBg: #001f4ef3;
+    --buttonBgHover: #27607ef3;
+
     --textShadow: 0px 0px 5px var(--textShadowColor), 0px 0px 5px var(--textShadowColor), 0px 1px 2px var(--textShadowColor);
+
+
+    --typeSpanHover: #8486ff3b;
 
     --typePreviewColor: rgb(90,200,90);
     --typeProjectColor: rgb(200,90,90);
@@ -40,6 +46,8 @@ body {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     /* iOS velocity scrolling */
+
+    overflow-x: hidden;
 }
 
 h1 {
@@ -51,12 +59,14 @@ h1 {
 a {
     text-decoration: none;
     color: var(--titleColor);
+    cursor: pointer;
 }
 a:visited {
-    color: var(--titleColor);
+    color: var(--titleColorLighter);
 }
 
-span, p, h1 {
+span, p, h1, .mainPageTitle a:visited {
+    text-decoration-color: none; 
     color: var(--titleColor);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -71,8 +81,7 @@ span, p, h1 {
 }
 
 .subContainerContent {
-    background: rgba(0, 80, 80, 0.315);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 46, 70, .7);  
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -85,8 +94,7 @@ span, p, h1 {
     background-position: center;  
     flex: 1 1 30%;
     margin: 10px;
-    height: 150px; 
-    backdrop-filter: blur(10px);
+    height: 150px;
     border-radius: 20px; 
     overflow: hidden;
 }
@@ -101,8 +109,7 @@ span, p, h1 {
     text-shadow: var(--textShadow);
 }
 .subContainerIten .itenContainer {
-    backdrop-filter: blur(2px);
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.6);
     padding-bottom: 50px;
     width: 100%;
     height: 100%;
@@ -116,7 +123,7 @@ span, p, h1 {
     display: none;
 }
 .subContainerIten:hover .itenContainer {
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.9);
 }
 
 
@@ -129,14 +136,22 @@ span, p, h1 {
     border: solid var(--titleColorLighter) 2px;
     box-shadow: var(--textShadow);
     margin-bottom: 40px;
-    border-radius: 30px; 
+    border-radius: 30px;    
     width: 95%;
+    height: fit-content;
+    max-height: 0px; 
 
-    position: relative;
-    left: 50%;
+    overflow-y: hidden;
+
+    position: absolute;
+    left: 150%;
+
+    pointer-events: none;
     
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+
+    transition: left 2s, max-height 2s;
 }
 .mainContainer hr { 
     background-color: var(--titleColorLighter);
@@ -145,42 +160,107 @@ span, p, h1 {
     height: 0px;
     width: 80%; 
 }
+.mainContainer1{
+    left: -50%;
+}
+.mainContainer2 {
+    left: 150%;
+}
+.mainContainerFocus {
+    left: 50%;
+    max-height: 9999px;
+    pointer-events: auto;
+}
+.titleMaincontainer2 {
+    margin: 0;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    color: white;
+    font-size: 50px;
+}
+.goBackToContainer1Btn {
+    cursor: pointer;
+    margin-left: 45px;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    width: 70px;
+    height: 40px;
+    border-radius: 30px;
+    border: solid var(--titleColorLighter) 2px;
+    box-shadow: var(--textShadow);
+    background: var(--buttonBg);
+    color: var(--titleColor);
+    overflow: hidden;
+    transition: background .5s, border-color .5s;
+}
+.goBackToContainer1Btn:hover {
+    background: var(--buttonBgHover);
+    border-color: black;
+}
+.goBackToContainer1Btn:active {
+    background: black;
+    transition: background .3s;
+}
+.goBackToContainer1Btn::after {
+    content: attr(data-inner-text);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left cubic-bezier(0.71, 0.37, 0.21, 0.97) 1s;
+}
+.goBackToContainer1Btn:hover::after {
+    left: 150%;
+}
+.goBackToContainer1Btn::before {
+    content: "\00AB";
+    position: absolute;
+    left: -10%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 1s;
+}
+.goBackToContainer1Btn:hover::before {
+    left: 50%;
+}
 
 .typeContainer{
     text-align: center;
     margin: 5px;
     margin-bottom: 25px;
 }
-.typeContainer span.typeSpan {
+.typeContainer a.typeSpan {
     background: transparent;
     padding: 0;
     border-radius: 10px;
     cursor: pointer;
     transition: background .2s, padding .2s;
 }
-.typeContainer span.typeSpan:hover {
+.typeContainer a.typeSpan:hover {
     padding-left: 7;
     padding-right: 7;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--typeSpanHover);
 }
 
 .Preview {
-    color: var(--typePreviewColor);
+    color: var(--typePreviewColor) !important;
 }
 .Project {
-    color: var(--typeProjectColor);
+    color: var(--typeProjectColor) !important;
 }
 .MPP {
-    color: var(--typeMPPColor);
+    color: var(--typeMPPColor) !important;
 }
 .Node_JS {
-    color: var(--typeNodeJSColor);
+    color: var(--typeNodeJSColor) !important
 }
 .Userscript {
-    color: var(--typeUserscript);
+    color: var(--typeUserscript) !important;
 }
 .Web_App {
-    color: var(--typeWebAppColor);
+    color: var(--typeWebAppColor) !important
 }
 
 
@@ -254,12 +334,22 @@ span, p, h1 {
 
 
 @media screen and (max-width: 331px) {
-        .nanGit {
-            border-radius: 0;
-        }
+    .nanGit {
+        border-radius: 0;
+    }
 }
 @media screen and (max-width: 600px) {
     .subContainerIten:hover .itenContainer {
         background: rgba(0,0,0,.2);
     }
+    
+    .subContainerIten {
+        height: 200px !important;
+        flex: 1 1 50% !important;
+    }
 }
+@media screen and (min-width: 1150px) {
+    .mainContainer {
+      width: 1100px;
+    }
+  }

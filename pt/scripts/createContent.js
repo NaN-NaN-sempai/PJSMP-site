@@ -9,9 +9,72 @@ createContent({
     id: "topics",
     color: "white", 
     solidBg: "transparent",
-    title: "Tipos de projeeto",
-    desc: "Pequena explicação de dos tipos de projetos que estão e serão postados aqui:<br>- Previa<br>- Projeto<br>- Node JS<br>- Userscript<br>- Web App",
-    onClick: "./topicos/tiposDeProjetos/"
+    title: "Tipos de Projeto",
+    desc: `Pequena explicação de dos tipos de projetos que estão e serão postados aqui:
+        <br>- <span class="Preview">Previa</span>
+        <br>- <span class="Project">Projeto</span>
+        <br>- <span class="Node_JS">Node JS</span>
+        <br>- <span class="Userscript">Userscript</span>
+        <br>- <span class="Web_App">Web App</span>`,
+    onClickType: "content",
+    onClick: (name)=>{
+        var containersArr = [];
+        var contentsArr = [];
+        
+        var createContainer = obj => containersArr.push(obj);
+        var createContent = obj => contentsArr.push(obj);
+
+        createContainer({
+            title: "Tipos de Projeto",
+            id: "projectTypes"
+        });
+        
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            solidBg: "rgb(90,200,90)",
+            title: "Previa",
+            desc: "Projetos com com exemplos online<br><br>Projetos que podem ser executado online com o GitHub Pages ou outros métodos.",
+            onClick: ()=>{}
+        });
+        
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            solidBg: "rgb(200,90,90)",
+            title: "Projeto",
+            desc: "Apenas o projeto<br><br>Apenas o link para o projeto em questão.",
+            onClick: ()=>{}
+        });
+        
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            background: "../pt/topicos/tiposDeProjetos/content/imgs/nodeBanner.png",
+            title: "Node JS",
+            desc: "Projetos em Node Js<br><br>Servidore, aplicativos e projetos feitos usando Node Js.",
+            onClick: "https://nodejs.org/"
+        });
+        
+        createContent({
+            id: "projectTypes",
+            color: "white",
+            background: "../pt/topicos/tiposDeProjetos/content/imgs/tamperBanner.png",
+            title: "Userscript",
+            desc: "Projetos de Userscript<br><br>Userscripts feitos para sites que podem mudar o seu comportamento.<br><br>Recomendado: Tampermonkey.",
+            onClick: "https://www.tampermonkey.net/"
+        });
+        
+        createContent({
+            id: "projectTypes",
+            color: "rgb(100,180,255)",
+            background: "../pt/topicos/tiposDeProjetos/content/imgs/webBanner.jpg",
+            title: "Web App",
+            desc: "Projetos Web<br><br>Projetos, aplicativos e paginas com HTML, CSS e Javascript que podem ser executados online." 
+        });
+
+        openContentInContainer2(name, containersArr, contentsArr);
+    }
 });
 
 /* createContent({
@@ -35,21 +98,11 @@ createContainer({
 createContent({
     id: "projects",
     color: "white",
-    solidBg: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
-    title: "Método de Newton-Raphson", 
-    type: ["Web App", "Previa"],
-    desc: 'Calcula e mostra a raiz de funções usando o método de Newton-Raphson usando o projeto "Visualizador de Funções".',
-    onClick: "./projetos/metodoDeNewton/"
-});
-
-
-createContent({
-    id: "projects",
-    color: "white",
-    solidBg: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
+    background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
     title: "Visualizador de Funções", 
     type: ["Web App", "Previa"],
-    desc: "Visualizador de funções usando Javascript e HTML.",
+    desc: `Visualizador de funções usando Javascript e HTML.<br>
+           <i>Update (18/09/2021):</i> Agora com linhas entre os pontos.`,
     onClick: "./projetos/visualizadorDeFuncoes/"
 });
 
@@ -82,6 +135,16 @@ createContent({
     onClick: "https://oficina-introducao-computacao.vercel.app/"
 });
 
+
+/* createContent({
+    id: "studies",
+    color: "white",
+    background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
+    title: "Método de Newton-Raphson", 
+    type: ["Web App", "Previa"],
+    desc: 'Calcula e mostra a raiz de funções usando o método de Newton-Raphson, o visualizador é uma copia do projeto "Visualizador de Funções" encontrado na aba "Projetos".<br>Requisitado pela matéria <i>Matemática Aplicada</i> da minha faculdade.',
+    onClick: "./projetos/metodoDeNewton/"
+});
 
 /* createContent({
     id: "studies",

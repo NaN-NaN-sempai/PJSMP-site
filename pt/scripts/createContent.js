@@ -98,7 +98,7 @@ createContainer({
 
 createContent({
     id: "projects",
-    color: "#fc9c28",
+    color: "#fbeba3",
     background: "../../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
     title: "Elden Ring Countdown",
     type: ["Node JS", "Web App", "Previa"],

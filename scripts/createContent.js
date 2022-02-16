@@ -92,6 +92,17 @@ createContainer({
 createContent({
     id: "projects",
     color: "#fc9c28",
+    background: "../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
+    title: "Elden Ring Countdown",
+    type: ["Node JS", "Web App", "Preview"],
+    elemTitle: "Elden Ring Countdown",
+    desc: "Countdown for the launch day of Elden Ring.<br><br>Time is translated to Central Time so it will be accurate indepent of your Time Zone.",
+    onClick: "https://elden-ring-countdown.vercel.app/"
+});
+
+createContent({
+    id: "projects",
+    color: "#fc9c28",
     background: "./projects/PJSMP/content/imgs/bg/fullBg.png",
     title: "P J S M P",
     type: ["MPP"],

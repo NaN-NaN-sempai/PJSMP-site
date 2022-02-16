@@ -95,6 +95,19 @@ createContainer({
     leng: "pt"
 });
 
+
+createContent({
+    id: "projects",
+    color: "#fc9c28",
+    background: "../../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
+    title: "Elden Ring Countdown",
+    type: ["Node JS", "Web App", "Previa"],
+    elemTitle: "Elden Ring Countdown",
+    desc: "Contagem regressiva para o lançamento de Elden Ring.<br><br>O horário é traduzido para Central Time, então a contagem está certa independente da Time Zone do usuario.",
+    onClick: "https://elden-ring-countdown.vercel.app/"
+});
+
+
 createContent({
     id: "projects",
     color: "white",

@@ -104,7 +104,7 @@ createContent({
     type: ["Node JS", "Web App", "Previa"],
     elemTitle: "Elden Ring Countdown",
     desc: "Contagem regressiva para o lançamento de Elden Ring.<br><br>O horário é traduzido para Central Time, então a contagem está certa independente da Time Zone do usuario.",
-    onClick: "https://elden-ring-countdown.vercel.app/"
+    onClick: "https://elden-ring-countdown.vercel.app/#pt"
 });
 
 

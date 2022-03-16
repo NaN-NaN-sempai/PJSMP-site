@@ -77,6 +77,52 @@ createContent({
     }
 });
 
+createContent({
+    id: "topics",
+    color: "white",
+    background: "../pt/content/imgs/logoIF.jpg",
+    title: "Academicos (IF Baiano)",
+    desc: `Lista com trabalhos estudos acadêmicos produzidos durante minha graduação no Instituto Federal Baiano em Senhor do Bonfim.`,
+    onClickType: "content",
+    onClick: (name)=>{
+        var containersArr = [];
+        var contentsArr = [];
+        
+        var createContainer = obj => containersArr.push(obj);
+        var createContent = obj => contentsArr.push(obj);
+
+        createContainer({
+            title: "Trabalhos",
+            id: "trabalhosIF"
+        });
+        
+        createContent({
+            id: "trabalhosIF",
+            color: "white",
+            background: "../pt/content/imgs/coneduLogo.png",
+            title: "SEGURANÇA DA INFORMAÇÃO NO CONTEXTO ESCOLAR",
+            //<iframe src="https://editorarealize.com.br/editora/anais/conedu/2021/TRABALHO_EV150_MD1_SA119_ID1208_22092021174849.pdf#zoom=92"></iframe>
+            desc: "Juntamente a Douglas da Silva Santos e Victor Hugo de Carvalho Santana, sob a supervisão do professor Damon Ferreira Farias, publicamos esse artigo no CONEDU para a nossa bolsa do PIBID.",
+            onClick: "https://editorarealize.com.br/editora/anais/conedu/2021/TRABALHO_EV150_MD1_SA119_ID1208_22092021174849.pdf"
+        });
+
+        createContainer({
+            title: "Estudos",
+            id: "estudosIf"
+        });
+
+        var tempCont = getContent("Site Oficina de Introdução a Computação", "studies");
+        tempCont.id = "estudosIf";
+        createContent(tempCont);
+
+        tempCont = getContent("Método de Newton-Raphson", "studies");
+        tempCont.id = "estudosIf";
+        createContent(tempCont);
+
+        openContentInContainer2(name, containersArr, contentsArr);
+    }
+})
+
 /* createContent({
     id: "topics",
     color: "white",
@@ -99,9 +145,9 @@ createContainer({
 createContent({
     id: "projects",
     color: "#fbeba3",
-    background: "../../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
     title: "Elden Ring Countdown",
     type: ["Node JS", "Web App", "Previa"],
+    background: "../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
     elemTitle: "Elden Ring Countdown",
     desc: "Contagem regressiva para o lançamento de Elden Ring.<br><br>O horário é traduzido para Central Time, então a contagem está certa independente da Time Zone do usuario.",
     onClick: "https://elden-ring-countdown.vercel.app/#pt"

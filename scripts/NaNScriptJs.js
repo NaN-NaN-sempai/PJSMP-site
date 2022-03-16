@@ -237,9 +237,16 @@ var openContentInContainer2 = (contentName, contanersArr, contentsArr) => {
     }
 }
 
-var findContentOnObj = (name) => {
-    name = name.replaceAll("%20"," ").replaceAll("_", " ");
-    var content = containers.find(conta => conta.content.find(conte => conte.title == name))?.content.find(conte => conte.title == name);
+var getContainer = id => containers.find(cont => cont.id == id);
+var getContent = (title, id, copy = true) => {
+    var conteFind = getContainer(id)?.content?.find(conte => conte.title == title);
+
+    return copy? Object.assign({}, conteFind): conteFind;
+};
+
+var getContentByTitle = (title) => {
+    title = title.replaceAll("%20"," ").replaceAll("_", " ");
+    var content = containers.find(conta => conta.content.find(conte => conte.title == title))?.content.find(conte => conte.title == title);
     return content;
 }
 
@@ -247,7 +254,7 @@ var hrefChange = () => {
     var params = document.location.href.replace(document.location.origin+document.location.pathname, "");
 
     var title = document.head.querySelector("title");
-
+console.log(params);
     if(params[0] == "#"){
         var param = params.split("=")[1];
         title.innerHTML = title.dataset.title == undefined || param == undefined? 
@@ -258,7 +265,7 @@ var hrefChange = () => {
             tagOnclick(param);
 
         } else if(params.includes("content")){
-            var content = findContentOnObj(param);
+            var content = getContentByTitle(param);
 
             if(content != undefined){
                 content.onClick(content.title);
@@ -279,6 +286,20 @@ var hrefChange = () => {
 
                 changeContainerFocus("mainContainer2");
             }
+
+        } else if(params.includes("customContent")){
+            removeContentContainer2();
+            createContainer({
+                title:"Custom Content",
+                id: "workingInProgress"
+            }, false);
+            createContent({
+                id: "workingInProgress",
+                title: "Working in progress!",
+                desc: "This filter is in working progress!"
+            }, false);
+
+            changeContainerFocus("mainContainer2");
         } else if(params == "#"){
             changeContainerFocus("mainContainer1");
 
@@ -289,4 +310,4 @@ var hrefChange = () => {
 }
 
 window.addEventListener("load", hrefChange);
-window.addEventListener('popstate', hrefChange);
+window.addEventListener("popstate", hrefChange);

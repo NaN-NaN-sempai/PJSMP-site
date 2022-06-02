@@ -186,6 +186,17 @@ createContainer({
 
 createContent({
     id: "studies",
+    color: "white",
+    background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
+    title: "Mover Gráficos", 
+    type: ["Web App", "Previa"],
+    desc: 'Teste que move os graficos gerados pelo projeto <a href="./projetos/visualizadorDeFuncoes/">Visualizador de Funções</a>, encontrado na aba "Projetos", sem mudar o formato do grafico e mostra uma função resultante para obter esse movimento.',
+    onClick: "./projetos/moverGraficoNosEixos/"
+});
+
+
+createContent({
+    id: "studies",
     color: "#00e3ff",
     background: "./content/imgs/oficinaLogo.png",
     title: "Site Oficina de Introdução a Computação", 
@@ -201,7 +212,7 @@ createContent({
     background: "linear-gradient(to right, white 49.8%, black 49.8%, black 50.2%, white 50.2%), linear-gradient(to top, white 49.8%, black 49.8%, black 50.2%, white 50.2%)",
     title: "Método de Newton-Raphson", 
     type: ["Web App", "Previa"],
-    desc: 'Calcula e mostra a raiz de funções usando o método de Newton-Raphson, o visualizador é uma copia do projeto "Visualizador de Funções" encontrado na aba "Projetos".<br>Requisitado pela matéria <i>Matemática Aplicada</i> da minha faculdade.',
+    desc: 'Calcula e mostra a raiz de funções usando o método de Newton-Raphson, o visualizador é uma copia do projeto <a href="./projetos/visualizadorDeFuncoes/">Visualizador de Funções</a> encontrado na aba "Projetos".<br>Requisitado pela matéria <i>Matemática Aplicada</i> da minha faculdade.',
     onClick: "./projetos/metodoDeNewton/"
 });
 

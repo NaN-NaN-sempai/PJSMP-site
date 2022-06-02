@@ -5,23 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/png" href="../../../content/imgs/logo/logo.png"/> 
-    <title>Método de Newton-Raphson</title>
+    <title>Mover Gráfico nos eixos X e Y</title>
     <link rel="stylesheet" href="../../style/graphCoreStyle.css">
 </head>
 <body>
     <div class="containerContainer">
         <div class="container"></div>
     </div>
-    
+
     <div class="controladores">
         <textarea id="equacao" spellcheck="false">x => Math.pow(x, 3)</textarea> <label>Equação <span id="equacaoSpan"></span></label> <br>
         <input type="range" id="tamanho" value="5" step="1" min="2" max="50"> <label>Tamanho dos pontos</label> <br>
-        <input type="range" id="resolucao" value="10" step="1" min="1" max="20"> <label>Resolução</label> <br>
+        <input type="range" id="resolucao" value="1" step="1" min="1" max="20"> <label>Resolução</label> <br>
         <input type="range" id="zoom" value="1" step=".1" min=".1" max="10"> <label>Zoom geral</label> <br>
         <input type="range" id="xZoom" value="1" step=".1" min=".1" max="10"> <label>Zoom em X</label> <br>
-        <input type="range" id="yZoom" value="1" step=".1" min=".1" max="10"> <label>Zoom em Y</label> <br>
-        <button id="calcularRaiz">Calcular Raiz com o Método de Newton-Raphson</button> <br>
-        <input type="number" id="numeroInicial" value="0" spellcheck="false"> <label>X inicial ou x0</label>
+        <input type="range" id="yZoom" value="1" step=".1" min=".1" max="10"> <label>Zoom em Y</label><br>
+        <br>
+        <input type="range" id="moverEmY" value="0" step="1" min="-50" max="50"> <label>Mover Grafico em Y</label> <br>
+        <input type="range" id="moverEmX" value="0" step="1" min="-50" max="50"> <label>Mover Grafico em X</label> <br>
+        <button id="restaurarMovimento">Restaurar valores</button> <br>
+        <br>
+        <textarea id="funcaoResultado" readonly="true" spellcheck="false">x => (Math.pow(x - 0, 3)) + 0</textarea> <label>Função resultante </label>
     </div>
 </body>
 <script src="./internos.js"></script>

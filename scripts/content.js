@@ -91,6 +91,17 @@ createContainer({
 
 createContent({
     id: "projects",
+    color: "white",
+    background: "linear-gradient(white, black)",
+    title: "Grey Image Shading",
+    type: ["Web App", "Preview"],
+    elemTitle: "Elden Ring Countdown",
+    desc: "My first project with canvas, it ads some shaders to a grey image, in the future it will work with color images as well, but for now it works only with grey ones, you can change the image src to try with your own images.",
+    onClick: "https://nan-nan-sempai.github.io/Canvas_Grey_Image_Shading/"
+});
+
+createContent({
+    id: "projects",
     color: "#fbeba3",
     background: "../content/imgs/banners/EldenRingCountdownWallpaper.jpg",
     title: "Elden Ring Countdown",
